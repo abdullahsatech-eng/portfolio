@@ -1,510 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abdullah Khan — Software Engineering Student</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper: #EFEEE6;
-    --paper-alt: #E7E4D8;
-    --ink: #232823;
-    --ink-soft: #55605A;
-    --moss: #4B6355;
-    --moss-dark: #34443A;
-    --gold: #C99A3D;
-    --line: #D2CEBE;
-    --card: #F7F6F0;
-    --radius: 4px;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  *{ margin:0; padding:0; box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
+    <title>Abdullah Khan | Software Engineering Student</title>
 
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter', sans-serif;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
+    <meta
+        name="description"
+        content="Abdullah Khan - Software Engineering student building practical software projects using C++, Python, SQL, and software design principles."
+    >
 
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    letter-spacing:-0.01em;
-    color:var(--ink);
-  }
-  .mono{ font-family:'IBM Plex Mono', monospace; }
-  a{ color:inherit; }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-  .wrap{ max-width:960px; margin:0 auto; padding:0 28px; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
 
-  .skip-link{
-    position:absolute; left:-999px; top:0;
-    background:var(--ink); color:var(--paper);
-    padding:10px 16px; z-index:100;
-  }
-  .skip-link:focus{ left:16px; top:16px; }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-  nav{
-    position:sticky; top:0; z-index:20;
-    background:rgba(239,238,230,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
-  .brand{ font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; }
-  .brand span{ color:var(--moss); }
-  .navlinks{ display:flex; gap:28px; list-style:none; }
-  .navlinks a{ text-decoration:none; font-size:0.88rem; color:var(--ink-soft); font-weight:500; transition:color .15s ease; }
-  .navlinks a:hover, .navlinks a:focus-visible{ color:var(--moss-dark); }
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-  header.hero{
-    padding:96px 0 84px;
-    border-bottom:1px solid var(--line);
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.8rem; letter-spacing:0.06em;
-    color:var(--moss-dark);
-    display:flex; align-items:center; gap:10px;
-    margin-bottom:22px;
-  }
-  .eyebrow::before{
-    content:""; width:8px; height:8px; border-radius:50%;
-    background:var(--gold); display:inline-block;
-    animation:pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:0.4; transform:scale(0.8); } }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #1e293b;
+        }
 
-  .hero h1{ font-size:clamp(2.3rem, 5vw, 3.7rem); line-height:1.08; max-width:15ch; }
-  .hero h1 em{ font-style:italic; color:var(--moss); }
-  .hero p.lede{ margin-top:24px; font-size:1.1rem; color:var(--ink-soft); max-width:56ch; }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
 
-  .hero-stats{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(4, auto);
-    gap:36px;
-  }
-  .stat-num{ font-family:'Fraunces', serif; font-size:1.9rem; font-weight:600; color:var(--moss-dark); }
-  .stat-label{ font-size:0.78rem; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace; margin-top:2px; }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #f8fafc;
+        }
 
-  .hero-actions{ margin-top:36px; display:flex; gap:14px; flex-wrap:wrap; }
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:12px 22px; border-radius:var(--radius);
-    font-size:0.92rem; font-weight:600; text-decoration:none;
-    border:1px solid transparent;
-    transition:transform .15s ease, background .15s ease;
-    cursor:pointer;
-  }
-  .btn-primary{ background:var(--moss); color:var(--paper); }
-  .btn-primary:hover{ background:var(--moss-dark); transform:translateY(-1px); }
-  .btn-ghost{ border-color:var(--ink); color:var(--ink); }
-  .btn-ghost:hover{ background:var(--ink); color:var(--paper); transform:translateY(-1px); }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
 
-  section{ padding:76px 0; border-bottom:1px solid var(--line); }
-  .section-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:44px; flex-wrap:wrap; gap:12px; }
-  .section-head h2{ font-size:1.9rem; }
-  .section-num{ font-family:'IBM Plex Mono', monospace; color:var(--ink-soft); font-size:0.85rem; }
+        .nav-links a {
+            color: #cbd5e1;
+            transition: 0.2s;
+        }
 
-  .about-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:48px; }
-  .about-grid p{ color:var(--ink-soft); margin-bottom:16px; }
-  .about-grid p:first-child{ color:var(--ink); font-size:1.05rem; }
-  .facts{ list-style:none; }
-  .facts li{ display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px dashed var(--line); font-size:0.92rem; }
-  .facts li span:first-child{ color:var(--ink-soft); }
-  .facts li span:last-child{ font-weight:600; text-align:right; }
+        .nav-links a:hover {
+            color: #ffffff;
+        }
 
-  /* PROJECTS */
-  .projects{ display:flex; flex-direction:column; gap:20px; }
-  .project-card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:30px;
-    display:grid;
-    grid-template-columns:180px 1fr;
-    gap:28px;
-    transition:transform .15s ease, box-shadow .15s ease;
-  }
-  .project-card:hover{ transform:translateY(-2px); box-shadow:0 12px 28px -16px rgba(35,40,35,0.35); }
-  .project-meta{ display:flex; flex-direction:column; gap:8px; }
-  .project-course{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em;
-    color:var(--gold);
-  }
-  .project-team{
-    font-size:0.78rem; color:var(--ink-soft);
-  }
-  .project-status{
-    font-size:0.72rem; font-family:'IBM Plex Mono', monospace;
-    color:var(--moss-dark);
-    display:flex; align-items:center; gap:6px;
-  }
-  .project-status::before{ content:"●"; color:var(--moss); font-size:0.6rem; }
-  .project-body h3{ font-size:1.25rem; margin-bottom:8px; }
-  .project-body p{ color:var(--ink-soft); font-size:0.94rem; max-width:64ch; margin-bottom:14px; }
-  .project-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
-  .project-tag{
-    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
-    background:var(--paper-alt); border:1px solid var(--line);
-    padding:3px 9px; border-radius:100px; color:var(--moss-dark);
-  }
-  .project-links{ display:flex; gap:18px; }
-  .project-links a{
-    font-size:0.85rem; font-weight:600; text-decoration:none;
-    color:var(--moss-dark); border-bottom:1px solid var(--moss);
-  }
-  .project-links span.muted{
-    font-size:0.85rem; color:var(--ink-soft); font-style:italic;
-  }
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
 
-  @media (max-width:640px){
-    .project-card{ grid-template-columns:1fr; }
-  }
+        .hero-content {
+            max-width: 800px;
+        }
 
-  /* SKILLS */
-  .skills{ display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:16px; }
-  .skill-card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; }
-  .skill-card h3{ font-size:1rem; margin-bottom:6px; }
-  .skill-card p{ font-size:0.82rem; color:var(--ink-soft); }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #f8fafc;
+        }
 
-  /* COURSEWORK TIMELINE */
-  .log{ position:relative; padding-left:34px; }
-  .log::before{ content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--moss), var(--line) 90%); }
-  .log-entry{ position:relative; padding-bottom:34px; }
-  .log-entry:last-child{ padding-bottom:0; }
-  .log-entry::before{ content:""; position:absolute; left:-34px; top:4px; width:13px; height:13px; border-radius:50%; background:var(--paper); border:2px solid var(--moss); }
-  .log-entry.now::before{ background:var(--gold); border-color:var(--gold); box-shadow:0 0 0 4px rgba(201,154,61,0.18); }
-  .log-date{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--ink-soft); margin-bottom:6px; }
-  .log-entry h3{ font-size:1.08rem; margin-bottom:6px; }
-  .log-entry p{ color:var(--ink-soft); font-size:0.92rem; max-width:58ch; }
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
 
-  .contact{ text-align:left; }
-  .contact h2{ font-size:2.1rem; max-width:16ch; }
-  .contact p.lede{ color:var(--ink-soft); max-width:50ch; margin:18px 0 30px; font-size:1.05rem; }
-  .contact-links{ display:flex; gap:14px; flex-wrap:wrap; }
+        .hero p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
 
-  footer{ padding:32px 0 60px; text-align:center; color:var(--ink-soft); font-size:0.82rem; font-family:'IBM Plex Mono', monospace; }
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-  @media (max-width:720px){
-    .about-grid{ grid-template-columns:1fr; }
-    .navlinks{ display:none; }
-    header.hero{ padding:64px 0 56px; }
-    section{ padding:56px 0; }
-    .hero-stats{ grid-template-columns:repeat(2, auto); row-gap:24px; }
-  }
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #1e293b;
+            color: #f8fafc;
+            transition: 0.2s;
+        }
 
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    .eyebrow::before{ animation:none; }
-    *{ transition:none !important; animation:none !important; }
-  }
-</style>
+        .btn:hover {
+            transform: translateY(-2px);
+            background: #334155;
+        }
+
+        .btn-primary {
+            background: #f8fafc;
+            color: #0f172a;
+            border-color: #f8fafc;
+        }
+
+        .btn-primary:hover {
+            background: #e2e8f0;
+        }
+
+        section {
+            padding: 90px 0;
+            border-top: 1px solid #1e293b;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 35px;
+            color: #f8fafc;
+        }
+
+        .about-text {
+            max-width: 800px;
+            color: #cbd5e1;
+            font-size: 1.05rem;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .skill {
+            background: #111c31;
+            border: 1px solid #1e293b;
+            padding: 18px;
+            border-radius: 10px;
+            color: #e2e8f0;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #111c31;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 24px;
+            transition: 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #475569;
+        }
+
+        .project-card h3 {
+            color: #f8fafc;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .tech {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #f8fafc;
+            font-weight: bold;
+        }
+
+        .education-box {
+            background: #111c31;
+            border: 1px solid #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 800px;
+        }
+
+        .education-box h3 {
+            margin-bottom: 8px;
+            color: #f8fafc;
+        }
+
+        .education-box p {
+            color: #94a3b8;
+        }
+
+        .contact-text {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            max-width: 700px;
+        }
+
+        footer {
+            border-top: 1px solid #1e293b;
+            padding: 30px 0;
+            text-align: center;
+            color: #64748b;
+        }
+
+        @media (max-width: 700px) {
+            .nav-content {
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 100px 0 80px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<a href="#main" class="skip-link">Skip to content</a>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">Abdullah Khan</div>
 
-<nav aria-label="Primary">
-  <div class="wrap">
-    <div class="brand">Abdullah <span>Khan</span></div>
-    <ul class="navlinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#coursework">Coursework</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<main id="main">
-
-  <header class="hero">
-    <div class="wrap">
-      <p class="eyebrow">5TH SEMESTER · SOFTWARE ENGINEERING · OPEN TO OPPORTUNITIES</p>
-      <h1>I build systems, not just <em>assignments.</em></h1>
-      <p class="lede">I'm Abdullah Khan, a Software Engineering student who's spent four semesters going past the coursework minimum — from hardware-level Assembly programming to full database systems with triggers and stored procedures. This is a record of that work, as I move from classroom projects into professional development.</p>
-
-      <div class="hero-stats">
-        <div>
-          <div class="stat-num">4</div>
-          <div class="stat-label">Semesters coded</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-        <div>
-          <div class="stat-num">6+</div>
-          <div class="stat-label">Projects built</div>
-        </div>
-        <div>
-          <div class="stat-num">5</div>
-          <div class="stat-label">Languages / tools</div>
-        </div>
-        <div>
-          <div class="stat-num">2026</div>
-          <div class="stat-label">Entering industry</div>
-        </div>
-      </div>
+    </nav>
 
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">See my projects →</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-      </div>
-    </div>
-  </header>
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Abdullah Khan</h1>
 
-  <section id="about">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>About</h2>
-        <span class="section-num mono">01 / About</span>
-      </div>
-      <div class="about-grid">
-        <div>
-          <p>I'm a Software Engineering student currently in my 5th semester, transitioning from academic projects into real, professional development work.</p>
-          <p>Across four semesters I've worked from the hardware layer up: Assembly language port programming, object-oriented systems with real design patterns, core data structure implementations, and full relational databases with triggers and stored procedures.</p>
-          <p>I care about understanding systems properly rather than just making them run — every project below was built to actually work, not just to pass.</p>
-        </div>
-        <ul class="facts">
-          <li><span>Status</span><span>5th semester, SE</span></li>
-          <li><span>Focus</span><span>Systems &amp; software engineering</span></li>
-          <li><span>Core languages</span><span>C++, Python, SQL, Assembly</span></li>
-          <li><span>Looking for</span><span>Internships &amp; collaboration</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+                <h2>
+                    Software Engineering Student | C++ • Python • SQL
+                </h2>
 
-  <section id="projects">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Projects</h2>
-        <span class="section-num mono">02 / Built</span>
-      </div>
+                <p>
+                    5th-semester Software Engineering student at Abasyn University,
+                    Islamabad, focused on building practical software projects and
+                    strengthening software engineering fundamentals.
+                </p>
 
-      <div class="projects">
+                <div class="buttons">
+                    <a
+                        class="btn btn-primary"
+                        href="https://github.com/abdullahsatech-eng"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub
+                    </a>
 
-        <div class="project-card">
-          <div class="project-meta">
-            <div class="project-course">DBMS</div>
-            <div class="project-status">In progress — repo setup</div>
-            <div class="project-team">with Waqas Jan</div>
-          </div>
-          <div class="project-body">
-            <h3>Automated Library Management System</h3>
-            <p>A relational database system for library operations — book records, member management, issuing/returns, reservations, and fines. Normalized to 3NF across 8 linked tables, with an automatic fine-calculation trigger and a stored procedure that validates availability before issuing a book.</p>
-            <div class="project-tags">
-              <span class="project-tag">Oracle SQL</span>
-              <span class="project-tag">PL/SQL Triggers</span>
-              <span class="project-tag">Stored Procedures</span>
-              <span class="project-tag">3NF Normalization</span>
-              <span class="project-tag">Views &amp; Indexing</span>
+                    <a
+                        class="btn"
+                        href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn
+                    </a>
+
+                    <a class="btn" href="#projects">
+                        View Projects
+                    </a>
+                </div>
             </div>
-            <div class="project-links">
-              <span class="muted">GitHub repo — coming soon</span>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+
+            <p class="about-text">
+                I'm a Software Engineering student at Abasyn University, Islamabad.
+                My journey into software engineering started from a pre-medical
+                background, and over time I developed a strong interest in programming,
+                software design, databases, and problem solving.
+                <br><br>
+                Through university coursework and hands-on projects, I have worked
+                with C++, Python, SQL, PL/SQL, data structures, object-oriented
+                programming, UML, design patterns, and database design.
+                <br><br>
+                My current focus is turning academic project experience into
+                well-structured, documented, and practical software projects while
+                preparing for software engineering internships and freelance
+                opportunities.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+
+            <div class="skills">
+                <div class="skill">C++</div>
+                <div class="skill">Python</div>
+                <div class="skill">SQL</div>
+                <div class="skill">PL/SQL</div>
+                <div class="skill">Object-Oriented Programming</div>
+                <div class="skill">Data Structures & Algorithms</div>
+                <div class="skill">Database Design</div>
+                <div class="skill">Database Management Systems</div>
+                <div class="skill">UML & Software Design</div>
+                <div class="skill">Design Patterns</div>
+                <div class="skill">Git</div>
+                <div class="skill">GitHub</div>
+                <div class="skill">Assembly (8086)</div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <div class="project-card">
-          <div class="project-meta">
-            <div class="project-course">DSA</div>
-            <div class="project-status">In progress — repo setup</div>
-            <div class="project-team">with Aftab Ahmad &amp; Zeeshan</div>
-          </div>
-          <div class="project-body">
-            <h3>Social Media Feed Management System</h3>
-            <p>A console simulation of how platforms like Facebook and Instagram manage feeds internally — five data structures working together in one system: a queue for upload processing, a singly linked list for the main feed, a doubly linked list for next/previous navigation, a stack for undoing likes, and array sorting for a trending-posts ranking.</p>
-            <div class="project-tags">
-              <span class="project-tag">C++</span>
-              <span class="project-tag">Queue &amp; Stack</span>
-              <span class="project-tag">Linked Lists</span>
-              <span class="project-tag">Sorting</span>
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="projects">
+
+                <div class="project-card">
+                    <h3>Automated Library Management System</h3>
+                    <p>
+                        Database-driven library management system for books,
+                        members, borrowing, reservations, and fines. Includes
+                        relational database design, SQL queries, PL/SQL trigger,
+                        stored procedure, views, indexes, and validation.
+                    </p>
+                    <div class="tech">
+                        Oracle SQL · PL/SQL · 3NF · Triggers · Procedures
+                    </div>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/abdullahsatech-eng/automated-library-management-system"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View on GitHub →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Restaurant Management System</h3>
+                    <p>
+                        C++ software design project covering the order-to-payment
+                        workflow using UML, GRASP principles, and design patterns
+                        to improve modularity and maintainability.
+                    </p>
+                    <div class="tech">
+                        C++ · UML · GRASP · Design Patterns
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Social Media Feed Management System</h3>
+                    <p>
+                        C++ console-based system demonstrating how queues,
+                        stacks, linked lists, and sorting can work together
+                        to manage feed operations.
+                    </p>
+                    <div class="tech">
+                        C++ · Data Structures · Queue · Stack · Linked Lists
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>University Course Registration System</h3>
+                    <p>
+                        Requirements and system analysis project for a proposed
+                        web-based course registration system, including
+                        stakeholder analysis, user stories, acceptance criteria,
+                        UML models, and approval workflows.
+                    </p>
+                    <div class="tech">
+                        Requirements Engineering · UML · SRS · System Analysis
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Digital Watch Application</h3>
+                    <p>
+                        Python application demonstrating real-time programming,
+                        GUI development, event-driven programming, and
+                        12/24-hour time display.
+                    </p>
+                    <div class="tech">
+                        Python · GUI · Event-Driven Programming
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>8086 LED Blinking Pattern Generator</h3>
+                    <p>
+                        Assembly project using port programming, bit manipulation,
+                        and custom delay loops to generate LED blinking patterns.
+                    </p>
+                    <div class="tech">
+                        Assembly (8086) · EMU8086 · Bit Manipulation
+                    </div>
+                </div>
+
             </div>
-            <div class="project-links">
-              <span class="muted">GitHub repo — coming soon</span>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+
+            <div class="education-box">
+                <h3>Abasyn University, Islamabad</h3>
+                <p>
+                    Bachelor of Science in Software Engineering
+                </p>
+                <p>
+                    5th Semester
+                </p>
+                <p>
+                    Coursework includes Programming, Object-Oriented Programming,
+                    Data Structures & Algorithms, Database Management Systems,
+                    Software Engineering, and related computing subjects.
+                </p>
             </div>
-          </div>
         </div>
+    </section>
 
-        <div class="project-card">
-          <div class="project-meta">
-            <div class="project-course">SDA</div>
-            <div class="project-status">In progress — repo setup</div>
-            <div class="project-team">Solo project</div>
-          </div>
-          <div class="project-body">
-            <h3>Restaurant Management System</h3>
-            <p>An order-to-payment simulation for a restaurant, designed around real software architecture principles rather than just working code. Modeled with UML (use case, class, sequence, domain diagrams) and implemented using four named design patterns plus GRASP principles for class responsibility.</p>
-            <div class="project-tags">
-              <span class="project-tag">C++</span>
-              <span class="project-tag">UML Modeling</span>
-              <span class="project-tag">Design Patterns</span>
-              <span class="project-tag">GRASP Principles</span>
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+
+            <p class="contact-text">
+                I'm currently interested in software engineering internships,
+                freelance development opportunities, technical collaborations,
+                and practical software projects.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    class="btn btn-primary"
+                    href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    class="btn"
+                    href="https://github.com/abdullahsatech-eng"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
             </div>
-            <div class="project-links">
-              <span class="muted">GitHub repo — coming soon</span>
-            </div>
-          </div>
         </div>
+    </section>
 
-        <div class="project-card">
-          <div class="project-meta">
-            <div class="project-course">COAL</div>
-            <div class="project-status">In progress — repo setup</div>
-            <div class="project-team">with Waqas Jan</div>
-          </div>
-          <div class="project-body">
-            <h3>LED Blinking Pattern Generator</h3>
-            <p>A hardware-level Assembly program that controls simulated LEDs through direct output-port programming — left-to-right, right-to-left, and alternating blink patterns, built with bit manipulation and custom delay loops on the Intel 8086.</p>
-            <div class="project-tags">
-              <span class="project-tag">Assembly (8086)</span>
-              <span class="project-tag">Port Programming</span>
-              <span class="project-tag">Bit Manipulation</span>
-              <span class="project-tag">EMU8086</span>
-            </div>
-            <div class="project-links">
-              <span class="muted">GitHub repo — coming soon</span>
-            </div>
-          </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>
+                © 2026 Abdullah Khan · Software Engineering Student
+            </p>
         </div>
+    </footer>
 
-        <div class="project-card">
-          <div class="project-meta">
-            <div class="project-course">OOP</div>
-            <div class="project-status">Documenting soon</div>
-            <div class="project-team">—</div>
-          </div>
-          <div class="project-body">
-            <h3>2nd Semester OOP Project</h3>
-            <p>A Python object-oriented programming project from 2nd semester. Full details and repo coming soon.</p>
-            <div class="project-tags"><span class="project-tag">Python</span></div>
-            <div class="project-links"><span class="muted">Details coming soon</span></div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-meta">
-            <div class="project-course">ITP</div>
-            <div class="project-status">Documenting soon</div>
-            <div class="project-team">—</div>
-          </div>
-          <div class="project-body">
-            <h3>1st Semester ITP Project</h3>
-            <p>An Introduction to Programming project from 1st semester, built in C++. Full details and repo coming soon.</p>
-            <div class="project-tags"><span class="project-tag">C++</span></div>
-            <div class="project-links"><span class="muted">Details coming soon</span></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Skills</h2>
-        <span class="section-num mono">03 / Toolkit</span>
-      </div>
-      <div class="skills">
-        <div class="skill-card">
-          <h3>C++</h3>
-          <p>OOP, data structures, design patterns</p>
-        </div>
-        <div class="skill-card">
-          <h3>SQL / PL-SQL</h3>
-          <p>Schema design, triggers, procedures</p>
-        </div>
-        <div class="skill-card">
-          <h3>Python</h3>
-          <p>Object-oriented fundamentals</p>
-        </div>
-        <div class="skill-card">
-          <h3>Assembly (x86)</h3>
-          <p>Port programming, low-level control</p>
-        </div>
-        <div class="skill-card">
-          <h3>Data Structures</h3>
-          <p>Queues, stacks, linked lists, sorting</p>
-        </div>
-        <div class="skill-card">
-          <h3>Software Design</h3>
-          <p>UML, GRASP, design patterns</p>
-        </div>
-        <div class="skill-card">
-          <h3>Git &amp; GitHub</h3>
-          <p>Version control, repo management</p>
-        </div>
-        <div class="skill-card">
-          <h3>Database Design</h3>
-          <p>Normalization, indexing, views</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="coursework">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Coursework Timeline</h2>
-        <span class="section-num mono">04 / Path</span>
-      </div>
-      <div class="log">
-        <div class="log-entry now">
-          <div class="log-date">5th Semester — Now</div>
-          <h3>Moving into professional development</h3>
-          <p>Organizing four semesters of coursework projects into a public portfolio and preparing for internships.</p>
-        </div>
-        <div class="log-entry">
-          <div class="log-date">4th Semester — DBMS</div>
-          <h3>Database Management Systems</h3>
-          <p>Built the Library Management System — relational design, normalization, triggers, and stored procedures.</p>
-        </div>
-        <div class="log-entry">
-          <div class="log-date">3rd Semester — DSA</div>
-          <h3>Data Structures &amp; Algorithms</h3>
-          <p>Built the Social Media Feed Management System — queues, stacks, and linked lists working together.</p>
-        </div>
-        <div class="log-entry">
-          <div class="log-date">2nd Semester — OOP</div>
-          <h3>Object-Oriented Programming</h3>
-          <p>Built a Python OOP project — full write-up coming soon.</p>
-        </div>
-        <div class="log-entry">
-          <div class="log-date">1st Semester — ITP</div>
-          <h3>Introduction to Programming</h3>
-          <p>Built a C++ foundational project — full write-up coming soon.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" style="border-bottom:none;">
-    <div class="wrap contact">
-      <h2>Let's connect.</h2>
-      <p class="lede">I'm looking for internships, collaboration, and feedback from people further along the path. Reach out — I read everything.</p>
-      <div class="contact-links">
-        <a class="btn btn-primary" href="mailto:abdullahsa.tech@gmail.com">Email me</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/abdullah-khan-0773aa349" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  built by Abdullah Khan · updated August 2026
-</footer>
-
-  
 </body>
 </html>
-<!-- GitHub Pages deployment -->
