@@ -1,29 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Abdullah Khan | Software Engineering Student</title>
+    <title>Abdullah Khan — Software Engineering Student</title>
 
     <meta
         name="description"
-        content="Abdullah Khan - Software Engineering student building practical software projects using C++, Python, SQL, and software design principles."
-    >
+        content="Abdullah Khan — Software Engineering student at Abasyn University, Islamabad, building practical software systems with C++, Python, SQL and software design."
+    />
+
+    <meta name="theme-color" content="#080b10" />
 
     <style>
+        :root {
+            --bg: #080b10;
+            --bg-soft: #0d1118;
+            --panel: rgba(255, 255, 255, 0.035);
+            --panel-strong: rgba(255, 255, 255, 0.055);
+            --border: rgba(255, 255, 255, 0.09);
+            --border-hover: rgba(255, 255, 255, 0.18);
+
+            --text: #f4f4f0;
+            --text-soft: #b4bbc5;
+            --text-muted: #737b87;
+
+            --accent: #d7b56d;
+            --accent-soft: #e4cc99;
+
+            --max: 1180px;
+            --radius: 20px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
+            background:
+                radial-gradient(
+                    circle at 78% 8%,
+                    rgba(215, 181, 109, 0.09),
+                    transparent 24%
+                ),
+                radial-gradient(
+                    circle at 12% 28%,
+                    rgba(255, 255, 255, 0.035),
+                    transparent 22%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+
+            background-image:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.018) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.018) 1px,
+                    transparent 1px
+                );
+
+            background-size: 64px 64px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 85%
+            );
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #111;
         }
 
         a {
@@ -31,230 +108,907 @@
             text-decoration: none;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
+        img {
+            max-width: 100%;
+            display: block;
         }
 
-        nav {
+        .container {
+            width: min(var(--max), calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        /* --------------------------------
+           Navigation
+        -------------------------------- */
+
+        .nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
-            border-bottom: 1px solid #1e293b;
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+
+            background: rgba(8, 11, 16, 0.76);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         }
 
-        .nav-content {
+        .nav-inner {
+            min-height: 76px;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            min-height: 70px;
+            justify-content: space-between;
+            gap: 30px;
         }
 
-        .logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #f8fafc;
+        .brand {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .brand span {
+            color: var(--accent);
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            align-items: center;
+            gap: 26px;
             list-style: none;
         }
 
         .nav-links a {
-            color: #cbd5e1;
-            transition: 0.2s;
+            font-size: 13px;
+            color: var(--text-soft);
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: #ffffff;
+            color: var(--text);
         }
+
+        .nav-cta {
+            padding: 10px 15px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            border-color: var(--border-hover);
+            background: var(--panel);
+        }
+
+        /* --------------------------------
+           Hero
+        -------------------------------- */
 
         .hero {
-            min-height: 90vh;
+            position: relative;
+            min-height: calc(100vh - 76px);
+
             display: flex;
             align-items: center;
-            padding: 80px 0;
+
+            padding: 100px 0 110px;
         }
 
-        .hero-content {
-            max-width: 800px;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.55fr);
+            gap: 70px;
+            align-items: end;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            font-family: "Courier New", monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+
+            font-size: 11px;
+            color: var(--text-soft);
+
+            margin-bottom: 28px;
+        }
+
+        .eyebrow-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 18px rgba(215, 181, 109, 0.45);
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: #f8fafc;
+            max-width: 980px;
+
+            font-size: clamp(3.7rem, 7.5vw, 7.6rem);
+            line-height: 0.94;
+
+            letter-spacing: -0.07em;
+            font-weight: 700;
+
+            margin-bottom: 34px;
         }
 
-        .hero h2 {
-            font-size: 1.5rem;
-            color: #94a3b8;
-            margin-bottom: 20px;
-            font-weight: normal;
+        .hero h1 .accent {
+            color: var(--accent);
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            max-width: 700px;
-            margin-bottom: 30px;
+        .hero-description {
+            max-width: 730px;
+
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            line-height: 1.85;
+
+            color: var(--text-soft);
+            margin-bottom: 38px;
         }
 
-        .buttons {
+        .hero-actions {
             display: flex;
-            gap: 15px;
             flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 20px;
-            border-radius: 8px;
-            border: 1px solid #334155;
-            background: #1e293b;
-            color: #f8fafc;
-            transition: 0.2s;
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 48px;
+            padding: 0 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 999px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
         }
 
-        .btn:hover {
+        .button:hover {
             transform: translateY(-2px);
-            background: #334155;
+            border-color: var(--border-hover);
+            background: var(--panel);
         }
 
-        .btn-primary {
-            background: #f8fafc;
-            color: #0f172a;
-            border-color: #f8fafc;
+        .button-primary {
+            background: var(--text);
+            color: #090b10;
+            border-color: var(--text);
         }
 
-        .btn-primary:hover {
-            background: #e2e8f0;
+        .button-primary:hover {
+            background: #ffffff;
+            border-color: #ffffff;
         }
+
+        .hero-side {
+            border-left: 1px solid var(--border);
+            padding-left: 28px;
+            padding-bottom: 5px;
+        }
+
+        .hero-side-label {
+            font-family: "Courier New", monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-side p {
+            color: var(--text-soft);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .hero-scroll {
+            margin-top: 85px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-family: "Courier New", monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+
+            color: var(--text-muted);
+        }
+
+        .scroll-line {
+            width: 45px;
+            height: 1px;
+            background: var(--text-muted);
+        }
+
+        /* --------------------------------
+           General Sections
+        -------------------------------- */
 
         section {
-            padding: 90px 0;
-            border-top: 1px solid #1e293b;
+            padding: 120px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 0.4fr 1fr;
+            gap: 40px;
+
+            margin-bottom: 60px;
+        }
+
+        .section-number {
+            font-family: "Courier New", monospace;
+            color: var(--accent);
+
+            font-size: 12px;
+            letter-spacing: 0.12em;
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 35px;
-            color: #f8fafc;
+            font-size: clamp(2.1rem, 4vw, 4rem);
+            line-height: 1.05;
+            letter-spacing: -0.055em;
         }
 
-        .about-text {
-            max-width: 800px;
-            color: #cbd5e1;
-            font-size: 1.05rem;
+        .section-intro {
+            margin-top: 18px;
+            max-width: 720px;
+
+            color: var(--text-soft);
+            font-size: 1rem;
+            line-height: 1.85;
         }
 
-        .skills {
+        /* --------------------------------
+           About
+        -------------------------------- */
+
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 70px;
+            align-items: start;
         }
 
-        .skill {
-            background: #111c31;
-            border: 1px solid #1e293b;
-            padding: 18px;
-            border-radius: 10px;
-            color: #e2e8f0;
+        .about-copy {
+            font-size: 1.15rem;
+            color: var(--text-soft);
+            line-height: 1.95;
         }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        .about-copy strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .profile-card {
+            padding: 28px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.06),
+                    rgba(255, 255, 255, 0.015)
+                );
+        }
+
+        .profile-card-label {
+            color: var(--text-muted);
+
+            font-family: "Courier New", monospace;
+            font-size: 10px;
+
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+
+            margin-bottom: 22px;
+        }
+
+        .profile-item {
+            padding: 17px 0;
+            border-top: 1px solid var(--border);
+
+            display: flex;
+            justify-content: space-between;
             gap: 20px;
         }
 
+        .profile-item:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .profile-key {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .profile-value {
+            color: var(--text);
+            font-size: 13px;
+            text-align: right;
+        }
+
+        /* --------------------------------
+           Selected Work
+        -------------------------------- */
+
+        .featured-project {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 0;
+
+            border: 1px solid var(--border);
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(215, 181, 109, 0.08),
+                    transparent 28%
+                ),
+                var(--panel);
+        }
+
+        .featured-main {
+            padding: 50px;
+            border-right: 1px solid var(--border);
+        }
+
+        .project-kicker {
+            font-family: "Courier New", monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+
+            font-size: 10px;
+            color: var(--accent);
+
+            margin-bottom: 22px;
+        }
+
+        .featured-main h3 {
+            font-size: clamp(2rem, 4vw, 3.8rem);
+            line-height: 1;
+            letter-spacing: -0.055em;
+            margin-bottom: 24px;
+        }
+
+        .featured-main p {
+            max-width: 700px;
+
+            color: var(--text-soft);
+            line-height: 1.85;
+            font-size: 15px;
+
+            margin-bottom: 30px;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            margin-bottom: 32px;
+        }
+
+        .tag {
+            padding: 7px 10px;
+
+            border: 1px solid var(--border);
+            border-radius: 999px;
+
+            color: var(--text-soft);
+            font-size: 11px;
+        }
+
+        .featured-side {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 35px;
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .feature {
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .feature-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .feature-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .project-grid {
+            margin-top: 24px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
         .project-card {
-            background: #111c31;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
-            padding: 24px;
-            transition: 0.2s;
+            position: relative;
+
+            min-height: 310px;
+            padding: 32px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background: var(--panel);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-4px);
-            border-color: #475569;
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            background: var(--panel-strong);
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .project-index {
+            color: var(--text-muted);
+            font-family: "Courier New", monospace;
+            font-size: 11px;
         }
 
         .project-card h3 {
-            color: #f8fafc;
-            margin-bottom: 12px;
+            max-width: 450px;
+
+            font-size: 1.65rem;
+            line-height: 1.1;
+            letter-spacing: -0.045em;
+
+            margin-top: 22px;
         }
 
         .project-card p {
-            color: #94a3b8;
-            margin-bottom: 15px;
+            margin-top: 14px;
+
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.8;
         }
 
-        .tech {
-            font-size: 0.9rem;
-            color: #cbd5e1;
+        .project-bottom {
+            margin-top: 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
-        .project-link {
-            display: inline-block;
-            margin-top: 15px;
-            color: #f8fafc;
-            font-weight: bold;
+        .project-tech {
+            color: var(--text-soft);
+            font-family: "Courier New", monospace;
+            font-size: 10px;
         }
 
-        .education-box {
-            background: #111c31;
-            border: 1px solid #1e293b;
-            padding: 25px;
-            border-radius: 12px;
-            max-width: 800px;
+        .project-arrow {
+            color: var(--accent);
+            font-size: 20px;
         }
 
-        .education-box h3 {
-            margin-bottom: 8px;
-            color: #f8fafc;
+        /* --------------------------------
+           Skills
+        -------------------------------- */
+
+        .skills-layout {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 80px;
         }
 
-        .education-box p {
-            color: #94a3b8;
+        .skills-statement {
+            font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+            letter-spacing: -0.04em;
+            line-height: 1.3;
         }
 
-        .contact-text {
-            color: #cbd5e1;
+        .skills-statement span {
+            color: var(--text-muted);
+        }
+
+        .skills-groups {
+            display: grid;
+            gap: 24px;
+        }
+
+        .skill-group {
+            padding: 25px 0;
+            border-top: 1px solid var(--border);
+
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 30px;
+        }
+
+        .skill-group-name {
+            color: var(--text-muted);
+
+            font-family: "Courier New", monospace;
+            font-size: 10px;
+
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .skill {
+            padding: 8px 11px;
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            color: var(--text-soft);
+            font-size: 12px;
+        }
+
+        /* --------------------------------
+           Approach
+        -------------------------------- */
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .approach-card {
+            padding: 32px;
+            min-height: 250px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background: var(--panel);
+        }
+
+        .approach-number {
+            font-family: "Courier New", monospace;
+            color: var(--accent);
+            font-size: 12px;
+        }
+
+        .approach-card h3 {
+            margin-top: 65px;
+            margin-bottom: 14px;
+
+            font-size: 1.3rem;
+            letter-spacing: -0.035em;
+        }
+
+        .approach-card p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* --------------------------------
+           Education
+        -------------------------------- */
+
+        .education-card {
+            border: 1px solid var(--border);
+            border-radius: 22px;
+
+            padding: 40px;
+
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.05),
+                    rgba(255, 255, 255, 0.015)
+                );
+        }
+
+        .education-card h3 {
+            font-size: 2rem;
+            letter-spacing: -0.045em;
+        }
+
+        .education-card p {
+            margin-top: 9px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .education-year {
+            color: var(--accent);
+
+            font-family: "Courier New", monospace;
+            font-size: 11px;
+
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* --------------------------------
+           Contact
+        -------------------------------- */
+
+        .contact-section {
+            padding-bottom: 80px;
+        }
+
+        .contact-box {
+            position: relative;
+
+            padding: 70px 60px;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(215, 181, 109, 0.14),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.055),
+                    rgba(255, 255, 255, 0.015)
+                );
+        }
+
+        .contact-box::after {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+
+            right: -100px;
+            bottom: -140px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(215, 181, 109, 0.12);
+        }
+
+        .contact-box h2 {
+            max-width: 850px;
+
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            line-height: 1;
+            letter-spacing: -0.065em;
+
             margin-bottom: 25px;
-            max-width: 700px;
         }
+
+        .contact-box p {
+            max-width: 650px;
+
+            color: var(--text-soft);
+            line-height: 1.85;
+
+            margin-bottom: 32px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* --------------------------------
+           Footer
+        -------------------------------- */
 
         footer {
-            border-top: 1px solid #1e293b;
-            padding: 30px 0;
-            text-align: center;
-            color: #64748b;
+            padding: 30px 0 50px;
+            color: var(--text-muted);
+            font-size: 11px;
         }
 
-        @media (max-width: 700px) {
-            .nav-content {
-                flex-direction: column;
-                justify-content: center;
-                gap: 10px;
-                padding: 15px 0;
-            }
+        .footer-inner {
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        /* --------------------------------
+           Responsive
+        -------------------------------- */
+
+        @media (max-width: 900px) {
 
             .nav-links {
-                gap: 14px;
-                flex-wrap: wrap;
-                justify-content: center;
+                display: none;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .featured-project,
+            .skills-layout,
+            .education-card {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-side {
+                border-left: none;
+                border-top: 1px solid var(--border);
+                padding-left: 0;
+                padding-top: 25px;
+            }
+
+            .hero-scroll {
+                margin-top: 55px;
+            }
+
+            .featured-main {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .section-header {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .project-grid,
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-group {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: min(var(--max), calc(100% - 28px));
             }
 
             .hero {
-                min-height: auto;
-                padding: 100px 0 80px;
+                padding: 80px 0 90px;
+            }
+
+            .hero h1 {
+                font-size: clamp(3rem, 16vw, 5rem);
+            }
+
+            section {
+                padding: 85px 0;
+            }
+
+            .featured-main,
+            .featured-side,
+            .contact-box,
+            .education-card,
+            .project-card {
+                padding: 25px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+
+        /* --------------------------------
+           Simple entrance animation
+        -------------------------------- */
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content > * {
+            animation: reveal 0.8s ease both;
+        }
+
+        .hero-content .eyebrow {
+            animation-delay: 0.05s;
+        }
+
+        .hero-content h1 {
+            animation-delay: 0.12s;
+        }
+
+        .hero-description {
+            animation-delay: 0.2s;
+        }
+
+        .hero-actions {
+            animation-delay: 0.28s;
+        }
+
+        .hero-side {
+            animation: reveal 0.9s 0.22s ease both;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
             }
         }
     </style>
@@ -263,266 +1017,876 @@
 <body>
 
     <!-- Navigation -->
-    <nav>
-        <div class="container nav-content">
-            <div class="logo">Abdullah Khan</div>
+    <nav class="nav">
+        <div class="container nav-inner">
+
+            <a href="#top" class="brand">
+                Abdullah<span>.</span>
+            </a>
 
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
+            <a
+                class="nav-cta"
+                href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn ↗
+            </a>
+
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Abdullah Khan</h1>
 
-                <h2>
-                    Software Engineering Student | C++ • Python • SQL
-                </h2>
+    <main id="top">
 
-                <p>
-                    5th-semester Software Engineering student at Abasyn University,
-                    Islamabad, focused on building practical software projects and
-                    strengthening software engineering fundamentals.
-                </p>
+        <!-- Hero -->
+        <header class="hero">
 
-                <div class="buttons">
-                    <a
-                        class="btn btn-primary"
-                        href="https://github.com/abdullahsatech-eng"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        GitHub
-                    </a>
+            <div class="container hero-grid">
 
-                    <a
-                        class="btn"
-                        href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        LinkedIn
-                    </a>
+                <div class="hero-content">
 
-                    <a class="btn" href="#projects">
-                        View Projects
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- About -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-
-            <p class="about-text">
-                I'm a Software Engineering student at Abasyn University, Islamabad.
-                My journey into software engineering started from a pre-medical
-                background, and over time I developed a strong interest in programming,
-                software design, databases, and problem solving.
-                <br><br>
-                Through university coursework and hands-on projects, I have worked
-                with C++, Python, SQL, PL/SQL, data structures, object-oriented
-                programming, UML, design patterns, and database design.
-                <br><br>
-                My current focus is turning academic project experience into
-                well-structured, documented, and practical software projects while
-                preparing for software engineering internships and freelance
-                opportunities.
-            </p>
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-
-            <div class="skills">
-                <div class="skill">C++</div>
-                <div class="skill">Python</div>
-                <div class="skill">SQL</div>
-                <div class="skill">PL/SQL</div>
-                <div class="skill">Object-Oriented Programming</div>
-                <div class="skill">Data Structures & Algorithms</div>
-                <div class="skill">Database Design</div>
-                <div class="skill">Database Management Systems</div>
-                <div class="skill">UML & Software Design</div>
-                <div class="skill">Design Patterns</div>
-                <div class="skill">Git</div>
-                <div class="skill">GitHub</div>
-                <div class="skill">Assembly (8086)</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-
-            <div class="projects">
-
-                <div class="project-card">
-                    <h3>Automated Library Management System</h3>
-                    <p>
-                        Database-driven library management system for books,
-                        members, borrowing, reservations, and fines. Includes
-                        relational database design, SQL queries, PL/SQL trigger,
-                        stored procedure, views, indexes, and validation.
-                    </p>
-                    <div class="tech">
-                        Oracle SQL · PL/SQL · 3NF · Triggers · Procedures
+                    <div class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        5th Semester · Software Engineering · Islamabad
                     </div>
 
-                    <a
-                        class="project-link"
-                        href="https://github.com/abdullahsatech-eng/automated-library-management-system"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        View on GitHub →
-                    </a>
+                    <h1>
+                        Building software<br />
+                        with <span class="accent">intent.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        I'm Abdullah Khan, a Software Engineering student at
+                        Abasyn University focused on turning programming,
+                        database, and software design fundamentals into
+                        practical, well-structured projects.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a
+                            class="button button-primary"
+                            href="#work"
+                        >
+                            Explore my work ↓
+                        </a>
+
+                        <a
+                            class="button"
+                            href="https://github.com/abdullahsatech-eng"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub ↗
+                        </a>
+
+                        <a
+                            class="button"
+                            href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            LinkedIn ↗
+                        </a>
+
+                    </div>
+
+                    <div class="hero-scroll">
+                        <span class="scroll-line"></span>
+                        Selected work
+                    </div>
+
                 </div>
 
-                <div class="project-card">
-                    <h3>Restaurant Management System</h3>
-                    <p>
-                        C++ software design project covering the order-to-payment
-                        workflow using UML, GRASP principles, and design patterns
-                        to improve modularity and maintainability.
-                    </p>
-                    <div class="tech">
-                        C++ · UML · GRASP · Design Patterns
-                    </div>
-                </div>
 
-                <div class="project-card">
-                    <h3>Social Media Feed Management System</h3>
-                    <p>
-                        C++ console-based system demonstrating how queues,
-                        stacks, linked lists, and sorting can work together
-                        to manage feed operations.
-                    </p>
-                    <div class="tech">
-                        C++ · Data Structures · Queue · Stack · Linked Lists
-                    </div>
-                </div>
+                <aside class="hero-side">
 
-                <div class="project-card">
-                    <h3>University Course Registration System</h3>
-                    <p>
-                        Requirements and system analysis project for a proposed
-                        web-based course registration system, including
-                        stakeholder analysis, user stories, acceptance criteria,
-                        UML models, and approval workflows.
-                    </p>
-                    <div class="tech">
-                        Requirements Engineering · UML · SRS · System Analysis
+                    <div class="hero-side-label">
+                        Current focus
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <h3>Digital Watch Application</h3>
                     <p>
-                        Python application demonstrating real-time programming,
-                        GUI development, event-driven programming, and
-                        12/24-hour time display.
+                        Practical software development, stronger engineering
+                        fundamentals, better documentation, and building
+                        project evidence that is ready for internships,
+                        freelance work, and real-world collaboration.
                     </p>
-                    <div class="tech">
-                        Python · GUI · Event-Driven Programming
-                    </div>
-                </div>
 
-                <div class="project-card">
-                    <h3>8086 LED Blinking Pattern Generator</h3>
-                    <p>
-                        Assembly project using port programming, bit manipulation,
-                        and custom delay loops to generate LED blinking patterns.
-                    </p>
-                    <div class="tech">
-                        Assembly (8086) · EMU8086 · Bit Manipulation
-                    </div>
-                </div>
+                </aside>
 
             </div>
-        </div>
-    </section>
 
-    <!-- Education -->
-    <section id="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
+        </header>
 
-            <div class="education-box">
-                <h3>Abasyn University, Islamabad</h3>
-                <p>
-                    Bachelor of Science in Software Engineering
-                </p>
-                <p>
-                    5th Semester
-                </p>
-                <p>
-                    Coursework includes Programming, Object-Oriented Programming,
-                    Data Structures & Algorithms, Database Management Systems,
-                    Software Engineering, and related computing subjects.
-                </p>
+
+        <!-- About -->
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">01 / PROFILE</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            From coursework<br />
+                            to engineering.
+                        </h2>
+
+                        <p class="section-intro">
+                            My software engineering journey started from a
+                            pre-medical background and grew through programming,
+                            databases, data structures, software design, and
+                            hands-on academic projects.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-copy">
+
+                        <p>
+                            I am currently in my
+                            <strong>5th semester of Software Engineering</strong>
+                            at Abasyn University, Islamabad.
+                        </p>
+
+                        <br />
+
+                        <p>
+                            My work so far has covered
+                            <strong>
+                                C++, Python, SQL/PL-SQL, object-oriented
+                                programming, data structures, database design,
+                                UML, and design patterns.
+                            </strong>
+                        </p>
+
+                        <br />
+
+                        <p>
+                            Rather than collecting technologies for the sake
+                            of a résumé, I am focused on understanding how
+                            systems are designed, implemented, documented,
+                            tested, and improved.
+                        </p>
+
+                    </div>
+
+
+                    <div class="profile-card">
+
+                        <div class="profile-card-label">
+                            Profile
+                        </div>
+
+                        <div class="profile-item">
+                            <span class="profile-key">Role</span>
+                            <span class="profile-value">
+                                Software Engineering Student
+                            </span>
+                        </div>
+
+                        <div class="profile-item">
+                            <span class="profile-key">University</span>
+                            <span class="profile-value">
+                                Abasyn University
+                            </span>
+                        </div>
+
+                        <div class="profile-item">
+                            <span class="profile-key">Location</span>
+                            <span class="profile-value">
+                                Islamabad, Pakistan
+                            </span>
+                        </div>
+
+                        <div class="profile-item">
+                            <span class="profile-key">Focus</span>
+                            <span class="profile-value">
+                                Software Development
+                            </span>
+                        </div>
+
+                        <div class="profile-item">
+                            <span class="profile-key">Open to</span>
+                            <span class="profile-value">
+                                Internships · Freelance
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-        </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
+        </section>
 
-            <p class="contact-text">
-                I'm currently interested in software engineering internships,
-                freelance development opportunities, technical collaborations,
-                and practical software projects.
-            </p>
 
-            <div class="buttons">
+        <!-- Work -->
+        <section id="work">
 
-                <a
-                    class="btn btn-primary"
-                    href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    LinkedIn
-                </a>
+            <div class="container">
 
-                <a
-                    class="btn"
-                    href="https://github.com/abdullahsatech-eng"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    GitHub
-                </a>
+                <div class="section-header">
+                    <div class="section-number">02 / SELECTED WORK</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            Projects built<br />
+                            from the ground up.
+                        </h2>
+
+                        <p class="section-intro">
+                            Academic projects are the foundation of my current
+                            portfolio. I am progressively rebuilding and
+                            documenting them with a stronger engineering mindset.
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- Featured -->
+                <article class="featured-project">
+
+                    <div class="featured-main">
+
+                        <div class="project-kicker">
+                            Featured project · Database systems
+                        </div>
+
+                        <h3>
+                            Automated Library Management System
+                        </h3>
+
+                        <p>
+                            A database-driven library management system
+                            reconstructed from the surviving academic project
+                            documentation. The documented design covers books,
+                            authors, categories, members, borrowing, returns,
+                            reservations, and fines using Oracle SQL and PL/SQL.
+                        </p>
+
+                        <div class="tag-row">
+                            <span class="tag">Oracle SQL</span>
+                            <span class="tag">PL/SQL</span>
+                            <span class="tag">3NF</span>
+                            <span class="tag">Triggers</span>
+                            <span class="tag">Stored Procedures</span>
+                            <span class="tag">Views</span>
+                            <span class="tag">Indexing</span>
+                        </div>
+
+                        <a
+                            class="button button-primary"
+                            href="https://github.com/abdullahsatech-eng/automated-library-management-system"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View repository ↗
+                        </a>
+
+                    </div>
+
+
+                    <div class="featured-side">
+
+                        <div class="feature-list">
+
+                            <div class="feature">
+                                <div class="feature-title">
+                                    Relational design
+                                </div>
+
+                                <div class="feature-text">
+                                    8 related tables documented and normalized
+                                    to Third Normal Form.
+                                </div>
+                            </div>
+
+                            <div class="feature">
+                                <div class="feature-title">
+                                    Database logic
+                                </div>
+
+                                <div class="feature-text">
+                                    SQL queries, joins, grouping, aggregation,
+                                    nested queries, views, indexes, and PL/SQL.
+                                </div>
+                            </div>
+
+                            <div class="feature">
+                                <div class="feature-title">
+                                    Automation
+                                </div>
+
+                                <div class="feature-text">
+                                    A documented trigger for overdue fine
+                                    generation and a procedure for book issuing.
+                                </div>
+                            </div>
+
+                            <div class="feature">
+                                <div class="feature-title">
+                                    Validation
+                                </div>
+
+                                <div class="feature-text">
+                                    Constraint, availability, fine, and trigger
+                                    validation documented from the original work.
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Other projects -->
+                <div class="project-grid">
+
+
+                    <article class="project-card">
+
+                        <div>
+
+                            <div class="project-top">
+                                <span class="project-index">02</span>
+                            </div>
+
+                            <h3>
+                                Restaurant Management System
+                            </h3>
+
+                            <p>
+                                A C++ software design project covering the
+                                order-to-payment workflow. The project used
+                                UML modeling, GRASP principles, and four design
+                                patterns to structure responsibilities and
+                                improve maintainability.
+                            </p>
+
+                        </div>
+
+                        <div class="project-bottom">
+
+                            <span class="project-tech">
+                                C++ · UML · GRASP · DESIGN PATTERNS
+                            </span>
+
+                            <span class="project-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <div>
+
+                            <div class="project-top">
+                                <span class="project-index">03</span>
+                            </div>
+
+                            <h3>
+                                Social Media Feed Management System
+                            </h3>
+
+                            <p>
+                                A C++ console-based system demonstrating how
+                                queues, stacks, singly and doubly linked lists,
+                                and sorting can work together to manage feed
+                                operations and navigation.
+                            </p>
+
+                        </div>
+
+                        <div class="project-bottom">
+
+                            <span class="project-tech">
+                                C++ · DATA STRUCTURES · ALGORITHMS
+                            </span>
+
+                            <span class="project-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <div>
+
+                            <div class="project-top">
+                                <span class="project-index">04</span>
+                            </div>
+
+                            <h3>
+                                University Course Registration System
+                            </h3>
+
+                            <p>
+                                Requirements and system analysis for a proposed
+                                web-based university course registration system,
+                                including stakeholder analysis, user stories,
+                                acceptance criteria, workflows, and UML models.
+                            </p>
+
+                        </div>
+
+                        <div class="project-bottom">
+
+                            <span class="project-tech">
+                                SRS · UML · REQUIREMENTS ENGINEERING
+                            </span>
+
+                            <span class="project-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <div>
+
+                            <div class="project-top">
+                                <span class="project-index">05</span>
+                            </div>
+
+                            <h3>
+                                Digital Watch Application
+                            </h3>
+
+                            <p>
+                                A Python application developed around real-time
+                                programming, GUI interaction, event-driven
+                                behavior, current-time display, and 12/24-hour
+                                format switching.
+                            </p>
+
+                        </div>
+
+                        <div class="project-bottom">
+
+                            <span class="project-tech">
+                                PYTHON · GUI · EVENT-DRIVEN PROGRAMMING
+                            </span>
+
+                            <span class="project-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <div>
+
+                            <div class="project-top">
+                                <span class="project-index">06</span>
+                            </div>
+
+                            <h3>
+                                8086 LED Blinking Pattern Generator
+                            </h3>
+
+                            <p>
+                                An Assembly project using port programming,
+                                bit manipulation, and custom delay loops to
+                                generate LED blinking patterns.
+                            </p>
+
+                        </div>
+
+                        <div class="project-bottom">
+
+                            <span class="project-tech">
+                                8086 ASSEMBLY · EMU8086 · LOW-LEVEL PROGRAMMING
+                            </span>
+
+                            <span class="project-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
 
             </div>
-        </div>
-    </section>
+
+        </section>
+
+
+        <!-- Skills -->
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">03 / CAPABILITIES</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            Fundamentals first.
+                        </h2>
+
+                        <p class="section-intro">
+                            My current skill set is built around programming,
+                            data, software design, and the engineering concepts
+                            behind applications.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="skills-layout">
+
+                    <div class="skills-statement">
+                        I care about understanding
+                        <span>why a system works</span>,
+                        not only making it run.
+                    </div>
+
+
+                    <div class="skills-groups">
+
+
+                        <div class="skill-group">
+
+                            <div class="skill-group-name">
+                                Programming
+                            </div>
+
+                            <div class="skill-list">
+                                <span class="skill">C++</span>
+                                <span class="skill">Python</span>
+                                <span class="skill">Object-Oriented Programming</span>
+                                <span class="skill">Problem Solving</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill-group">
+
+                            <div class="skill-group-name">
+                                Data & Algorithms
+                            </div>
+
+                            <div class="skill-list">
+                                <span class="skill">Data Structures</span>
+                                <span class="skill">Algorithms</span>
+                                <span class="skill">SQL</span>
+                                <span class="skill">PL/SQL</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill-group">
+
+                            <div class="skill-group-name">
+                                Software Design
+                            </div>
+
+                            <div class="skill-list">
+                                <span class="skill">UML</span>
+                                <span class="skill">GRASP</span>
+                                <span class="skill">Design Patterns</span>
+                                <span class="skill">Requirements Engineering</span>
+                                <span class="skill">System Analysis</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill-group">
+
+                            <div class="skill-group-name">
+                                Databases
+                            </div>
+
+                            <div class="skill-list">
+                                <span class="skill">Relational Database Design</span>
+                                <span class="skill">3NF Normalization</span>
+                                <span class="skill">Triggers</span>
+                                <span class="skill">Stored Procedures</span>
+                                <span class="skill">Views</span>
+                                <span class="skill">Indexing</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill-group">
+
+                            <div class="skill-group-name">
+                                Tools
+                            </div>
+
+                            <div class="skill-list">
+                                <span class="skill">Git</span>
+                                <span class="skill">GitHub</span>
+                                <span class="skill">EMU8086</span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Approach -->
+        <section>
+
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">04 / APPROACH</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            How I approach<br />
+                            software work.
+                        </h2>
+
+                        <p class="section-intro">
+                            The goal is not to present myself as someone who
+                            already knows everything. The goal is to show a
+                            developer who understands the fundamentals and
+                            deliberately improves through real project work.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="approach-grid">
+
+
+                    <article class="approach-card">
+
+                        <div class="approach-number">01</div>
+
+                        <h3>
+                            Understand first
+                        </h3>
+
+                        <p>
+                            Start with requirements, users, data, system
+                            behavior, and constraints before jumping directly
+                            into implementation.
+                        </p>
+
+                    </article>
+
+
+                    <article class="approach-card">
+
+                        <div class="approach-number">02</div>
+
+                        <h3>
+                            Structure the system
+                        </h3>
+
+                        <p>
+                            Use appropriate data structures, database models,
+                            software design principles, and clear separation
+                            of responsibilities.
+                        </p>
+
+                    </article>
+
+
+                    <article class="approach-card">
+
+                        <div class="approach-number">03</div>
+
+                        <h3>
+                            Document & improve
+                        </h3>
+
+                        <p>
+                            Keep the work understandable, version-controlled,
+                            and documented so the next iteration can be better
+                            than the previous one.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Education -->
+        <section id="education">
+
+            <div class="container">
+
+                <div class="section-header">
+                    <div class="section-number">05 / EDUCATION</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            Building the<br />
+                            foundation.
+                        </h2>
+
+                        <p class="section-intro">
+                            My academic work has given me exposure to both
+                            implementation and system-level thinking.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="education-card">
+
+                    <div>
+
+                        <h3>
+                            Abasyn University, Islamabad
+                        </h3>
+
+                        <p>
+                            Bachelor of Science in Software Engineering
+                        </p>
+
+                        <p>
+                            Coursework includes Introduction to Programming,
+                            Object-Oriented Programming, Data Structures &
+                            Algorithms, Database Management Systems, Software
+                            Engineering, and related computing subjects.
+                        </p>
+
+                    </div>
+
+                    <div class="education-year">
+                        5th semester
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Contact -->
+        <section id="contact" class="contact-section">
+
+            <div class="container">
+
+                <div class="contact-box">
+
+                    <div class="project-kicker">
+                        Open to opportunities
+                    </div>
+
+                    <h2>
+                        Have a project,<br />
+                        internship, or problem?
+                    </h2>
+
+                    <p>
+                        I'm currently open to software engineering internships,
+                        freelance development opportunities, technical
+                        collaborations, and practical software projects where
+                        I can contribute and continue growing.
+                    </p>
+
+                    <div class="contact-links">
+
+                        <a
+                            class="button button-primary"
+                            href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Connect on LinkedIn ↗
+                        </a>
+
+                        <a
+                            class="button"
+                            href="https://github.com/abdullahsatech-eng"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View GitHub ↗
+                        </a>
+
+                        <a
+                            class="button"
+                            href="mailto:abdullahsa.tech@gmail.com"
+                        >
+                            Email me ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>
-                © 2026 Abdullah Khan · Software Engineering Student
-            </p>
+
+        <div class="container footer-inner">
+
+            <div>
+                © 2026 Abdullah Khan
+            </div>
+
+            <div>
+                Software Engineering · Islamabad, Pakistan
+            </div>
+
         </div>
+
     </footer>
 
 </body>
