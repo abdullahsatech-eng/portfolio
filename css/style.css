@@ -7872,3 +7872,25 @@ img {
     }
 
 }
+/* =========================================================
+   CONTACT FINAL BUTTON / ICON REFINEMENT
+========================================================= */
+
+.contact-single-action {
+    width: 100%;
+    margin-top: auto;
+}
+
+.contact-card-actions {
+    align-items: center;
+}
+
+.contact-card-actions .button {
+    white-space: nowrap;
+}
+
+.footer-links a svg {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+}
