@@ -5896,3 +5896,592 @@ img {
     }
 
 }
+/* =========================================================
+   RESUME PAGE
+========================================================= */
+
+.resume-actions {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    margin-top:
+        32px;
+}
+
+.resume-section-heading {
+    margin-bottom:
+        45px;
+}
+
+.resume-profile-card {
+    max-width:
+        850px;
+
+    padding:
+        35px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        22px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.13);
+}
+
+.resume-profile-card p {
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.9;
+
+    margin-bottom:
+        20px;
+}
+
+.resume-profile-card p:last-child {
+    margin-bottom:
+        0;
+}
+
+.resume-timeline-card {
+    display:
+        grid;
+
+    grid-template-columns:
+        45px
+        1fr;
+
+    gap:
+        24px;
+
+    padding:
+        35px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.018)
+        );
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.resume-timeline-card:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(92,231,255,.22);
+
+    box-shadow:
+        0 25px 65px
+        rgba(0,0,0,.20);
+}
+
+.timeline-marker {
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid rgba(92,231,255,.20);
+
+    border-radius:
+        9px;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        9px;
+}
+
+.timeline-top {
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        25px;
+
+    margin-bottom:
+        18px;
+}
+
+.timeline-content h2 {
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            1.8rem,
+            3vw,
+            2.7rem
+        );
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -.05em;
+}
+
+.timeline-role {
+    margin-top:
+        9px;
+
+    color:
+        var(--text);
+
+    font-size:
+        13px;
+}
+
+.timeline-label {
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        .12em;
+
+    white-space:
+        nowrap;
+}
+
+.timeline-content > p:last-child {
+    color:
+        var(--muted-dark);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.85;
+}
+
+
+/* SKILL SUMMARY */
+
+.resume-skills-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:
+        12px;
+
+    margin-top:
+        45px;
+}
+
+.resume-skill-group {
+    padding:
+        25px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        17px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        transform .28s ease,
+        border-color .28s ease,
+        background .28s ease;
+}
+
+.resume-skill-group:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(92,231,255,.20);
+
+    background:
+        rgba(92,231,255,.035);
+}
+
+.resume-skill-group > span {
+    display:
+        block;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        .13em;
+}
+
+.resume-skill-group strong {
+    display:
+        block;
+
+    margin-top:
+        18px;
+
+    color:
+        var(--text);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        18px;
+
+    letter-spacing:
+        -.03em;
+}
+
+.resume-skill-group p {
+    margin-top:
+        8px;
+
+    color:
+        var(--muted-dark);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.75;
+}
+
+
+/* PROJECT LIST */
+
+.resume-project-list {
+    display:
+        grid;
+
+    gap:
+        10px;
+
+    margin-top:
+        45px;
+}
+
+.resume-project {
+    display:
+        grid;
+
+    grid-template-columns:
+        44px
+        1fr;
+
+    gap:
+        20px;
+
+    padding:
+        24px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        transform .28s ease,
+        border-color .28s ease,
+        background .28s ease;
+}
+
+.resume-project:hover {
+    transform:
+        translateX(5px);
+
+    border-color:
+        rgba(102,140,255,.24);
+
+    background:
+        rgba(255,255,255,.045);
+}
+
+.resume-project-number {
+    width:
+        32px;
+
+    height:
+        32px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        8px;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        9px;
+}
+
+.resume-project h3 {
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        17px;
+
+    letter-spacing:
+        -.035em;
+}
+
+.resume-project p {
+    margin-top:
+        7px;
+
+    color:
+        var(--muted-dark);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.8;
+}
+
+
+/* CURRENT DIRECTION */
+
+.resume-direction {
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:
+        65px;
+
+    padding:
+        55px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        26px;
+
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(92,231,255,.09),
+            transparent 28%
+        ),
+        rgba(255,255,255,.025);
+}
+
+.resume-direction h2 {
+    max-width:
+        600px;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2.5rem,
+            4.5vw,
+            4.4rem
+        );
+
+    line-height:
+        .94;
+
+    letter-spacing:
+        -.065em;
+}
+
+.resume-direction h2 span {
+    color:
+        var(--cyan);
+}
+
+.resume-direction > div:last-child {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+}
+
+.resume-direction p {
+    margin-bottom:
+        18px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.9;
+}
+
+.resume-direction p:last-child {
+    margin-bottom:
+        0;
+}
+
+
+/* =========================================================
+   RESUME RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .resume-skills-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .resume-direction {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            40px;
+    }
+
+    .timeline-top {
+        flex-direction:
+            column;
+
+        gap:
+            12px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .resume-actions {
+        flex-direction:
+            column;
+    }
+
+    .resume-actions .button {
+        width:
+            100%;
+    }
+
+    .resume-profile-card,
+    .resume-timeline-card,
+    .resume-direction {
+        padding:
+            25px;
+    }
+
+    .resume-timeline-card {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            18px;
+    }
+
+    .resume-project {
+        grid-template-columns:
+            34px
+            1fr;
+
+        gap:
+            14px;
+
+        padding:
+            19px;
+    }
+
+}
