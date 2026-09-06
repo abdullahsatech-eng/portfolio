@@ -3766,3 +3766,715 @@ img {
     }
 
 }
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
+.page-hero {
+    padding-top: 150px;
+    padding-bottom: 120px;
+}
+
+.page-title {
+    max-width: 1050px;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            3.5rem,
+            7vw,
+            7rem
+        );
+
+    line-height:
+        .9;
+
+    letter-spacing:
+        -.075em;
+}
+
+.page-lead {
+    max-width: 760px;
+
+    margin-top: 30px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+.about-story-grid {
+    margin-top: 65px;
+
+    display: grid;
+
+    grid-template-columns:
+        .8fr
+        1.2fr;
+
+    gap: 80px;
+
+    align-items: start;
+}
+
+.about-story-heading h2 {
+    max-width: 500px;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2.6rem,
+            5vw,
+            4.8rem
+        );
+
+    line-height: .95;
+
+    letter-spacing: -.065em;
+}
+
+.about-story-content {
+    padding: 32px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.13);
+}
+
+.about-story-content p {
+    color:
+        var(--muted-dark);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.9;
+
+    margin-bottom:
+        22px;
+}
+
+.about-story-content p:last-child {
+    margin-bottom:
+        0;
+}
+
+.about-story-content .large-text {
+    color:
+        var(--text);
+
+    font-size:
+        18px;
+}
+
+.about-skill-grid {
+    margin-top:
+        60px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:
+        16px;
+}
+
+.about-skill-card {
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    min-height:
+        245px;
+
+    padding:
+        30px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        20px;
+
+    background:
+        var(--surface);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.about-skill-card::before {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        200px;
+
+    height:
+        200px;
+
+    right:
+        -95px;
+
+    top:
+        -110px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(92,231,255,.09),
+            transparent 70%
+        );
+
+    opacity:
+        0;
+
+    transition:
+        opacity .3s ease;
+}
+
+.about-skill-card:hover {
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(92,231,255,.23);
+
+    background:
+        var(--surface-hover);
+
+    box-shadow:
+        0 25px 65px
+        rgba(0,0,0,.2);
+}
+
+.about-skill-card:hover::before {
+    opacity:
+        1;
+}
+
+.about-card-number {
+    position:
+        relative;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        36px;
+
+    height:
+        36px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        9px;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        9px;
+}
+
+.about-skill-card h3 {
+    margin-top:
+        35px;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        22px;
+
+    letter-spacing:
+        -.04em;
+}
+
+.about-skill-card p {
+    margin-top:
+        10px;
+
+    color:
+        var(--muted-dark);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.8;
+}
+
+.experience-grid {
+    margin-top:
+        65px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        .72fr
+        1.28fr;
+
+    gap:
+        75px;
+
+    align-items:
+        start;
+}
+
+.experience-heading h2 {
+    max-width:
+        500px;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2.5rem,
+            4.7vw,
+            4.7rem
+        );
+
+    line-height:
+        .95;
+
+    letter-spacing:
+        -.065em;
+}
+
+.experience-heading span {
+    color:
+        var(--cyan);
+}
+
+.experience-list {
+    display:
+        grid;
+
+    gap:
+        10px;
+}
+
+.experience-item {
+    display:
+        grid;
+
+    grid-template-columns:
+        45px
+        1fr;
+
+    gap:
+        20px;
+
+    padding:
+        24px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        transform .28s ease,
+        border-color .28s ease,
+        background .28s ease;
+}
+
+.experience-item:hover {
+    transform:
+        translateX(5px);
+
+    border-color:
+        rgba(92,231,255,.22);
+
+    background:
+        rgba(92,231,255,.035);
+}
+
+.experience-number {
+    width:
+        32px;
+
+    height:
+        32px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        8px;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        9px;
+}
+
+.experience-item h3 {
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        17px;
+
+    letter-spacing:
+        -.03em;
+}
+
+.experience-item p {
+    margin-top:
+        7px;
+
+    color:
+        var(--muted-dark);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.8;
+}
+
+.direction-panel {
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr
+        .8fr;
+
+    gap:
+        65px;
+
+    padding:
+        55px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        26px;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(92,231,255,.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(166,124,255,.08),
+            transparent 25%
+        ),
+        rgba(255,255,255,.025);
+
+    box-shadow:
+        var(--shadow-soft);
+}
+
+.direction-panel h2 {
+    max-width:
+        700px;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2.5rem,
+            4.5vw,
+            4.4rem
+        );
+
+    line-height:
+        .95;
+
+    letter-spacing:
+        -.065em;
+}
+
+.direction-panel h2 span {
+    color:
+        var(--cyan);
+}
+
+.direction-content {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+}
+
+.direction-content p {
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.85;
+
+    margin-bottom:
+        18px;
+}
+
+.education-detail {
+    margin-top:
+        55px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    gap:
+        40px;
+
+    padding:
+        42px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        23px;
+
+    background:
+        rgba(255,255,255,.025);
+}
+
+.education-detail h2 {
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2rem,
+            3.5vw,
+            3.2rem
+        );
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -.055em;
+}
+
+.education-degree {
+    margin-top:
+        10px;
+
+    color:
+        var(--text);
+
+    font-size:
+        14px;
+}
+
+.education-detail > div:first-child > p:last-child {
+    max-width:
+        720px;
+
+    margin-top:
+        18px;
+
+    color:
+        var(--muted-dark);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.8;
+}
+
+.education-mark {
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.5;
+
+    letter-spacing:
+        .12em;
+
+    text-align:
+        right;
+}
+
+
+/* =========================================================
+   ABOUT PAGE RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .about-story-grid,
+    .experience-grid,
+    .direction-panel {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            40px;
+    }
+
+    .about-skill-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .education-detail {
+        grid-template-columns:
+            1fr;
+    }
+
+    .education-mark {
+        text-align:
+            left;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .page-hero {
+        padding-top:
+            95px;
+
+        padding-bottom:
+            80px;
+    }
+
+    .page-title {
+        font-size:
+            clamp(
+                3rem,
+                15vw,
+                4.8rem
+            );
+    }
+
+    .page-lead {
+        font-size:
+            14px;
+
+        line-height:
+            1.8;
+    }
+
+    .about-story-content {
+        padding:
+            23px;
+    }
+
+    .about-skill-card {
+        min-height:
+            220px;
+
+        padding:
+            25px;
+    }
+
+    .experience-item {
+        grid-template-columns:
+            36px
+            1fr;
+
+        padding:
+            19px;
+    }
+
+    .direction-panel {
+        padding:
+            29px;
+    }
+
+    .education-detail {
+        padding:
+            29px;
+    }
+
+}
