@@ -6485,3 +6485,631 @@ img {
     }
 
 }
+/* =========================================================
+   RESUME PAGE
+========================================================= */
+
+.resume-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 34px;
+}
+
+.resume-section-heading {
+    margin-bottom: 45px;
+}
+
+.resume-profile-card {
+    max-width: 900px;
+    padding: 36px;
+
+    border: 1px solid var(--line);
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.018)
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.14);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.resume-profile-card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(92,231,255,.22);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.22);
+}
+
+.resume-profile-card p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    margin-bottom: 20px;
+}
+
+.resume-profile-card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   EDUCATION TIMELINE
+========================================================= */
+
+.resume-timeline-card {
+    display: grid;
+
+    grid-template-columns: 45px 1fr;
+
+    gap: 24px;
+
+    padding: 36px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.018)
+        );
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.12);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.resume-timeline-card:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(92,231,255,.22);
+
+    box-shadow:
+        0 28px 75px
+        rgba(0,0,0,.20);
+}
+
+.timeline-marker {
+    width: 35px;
+    height: 35px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(92,231,255,.22);
+
+    border-radius:
+        9px;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        9px;
+
+    background:
+        rgba(92,231,255,.035);
+}
+
+.timeline-top {
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        25px;
+
+    margin-bottom:
+        18px;
+}
+
+.timeline-content h2 {
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            1.8rem,
+            3vw,
+            2.8rem
+        );
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -.055em;
+}
+
+.timeline-role {
+    margin-top:
+        10px;
+
+    color:
+        var(--text);
+
+    font-size:
+        13px;
+}
+
+.timeline-label {
+    padding:
+        8px 10px;
+
+    border:
+        1px solid
+        rgba(92,231,255,.18);
+
+    border-radius:
+        999px;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        .11em;
+
+    white-space:
+        nowrap;
+
+    background:
+        rgba(92,231,255,.03);
+}
+
+.timeline-content > p:last-child {
+    color:
+        var(--muted-dark);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.85;
+}
+
+
+/* =========================================================
+   RESUME SKILLS
+========================================================= */
+
+.resume-skills-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        13px;
+
+    margin-top:
+        45px;
+}
+
+.resume-skill-group {
+    padding:
+        27px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        17px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.resume-skill-group:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(92,231,255,.21);
+
+    background:
+        rgba(92,231,255,.035);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.16);
+}
+
+.resume-skill-group > span {
+    display:
+        block;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        .13em;
+}
+
+.resume-skill-group strong {
+    display:
+        block;
+
+    margin-top:
+        18px;
+
+    color:
+        var(--text);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        18px;
+
+    line-height:
+        1.25;
+
+    letter-spacing:
+        -.035em;
+}
+
+.resume-skill-group p {
+    margin-top:
+        9px;
+
+    color:
+        var(--muted-dark);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   RESUME PROJECT LIST
+========================================================= */
+
+.resume-project-list {
+    display:
+        grid;
+
+    gap:
+        10px;
+
+    margin-top:
+        45px;
+}
+
+.resume-project {
+    display:
+        grid;
+
+    grid-template-columns:
+        44px 1fr;
+
+    gap:
+        20px;
+
+    padding:
+        25px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        transform .28s ease,
+        border-color .28s ease,
+        background .28s ease,
+        box-shadow .28s ease;
+}
+
+.resume-project:hover {
+    transform:
+        translateX(5px);
+
+    border-color:
+        rgba(102,140,255,.24);
+
+    background:
+        rgba(255,255,255,.045);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.14);
+}
+
+.resume-project-number {
+    width:
+        33px;
+
+    height:
+        33px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        8px;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        9px;
+}
+
+.resume-project h3 {
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        17px;
+
+    line-height:
+        1.2;
+
+    letter-spacing:
+        -.035em;
+}
+
+.resume-project p {
+    margin-top:
+        8px;
+
+    color:
+        var(--muted-dark);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   CURRENT DIRECTION
+========================================================= */
+
+.resume-direction {
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        65px;
+
+    padding:
+        56px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        26px;
+
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(92,231,255,.09),
+            transparent 28%
+        ),
+        rgba(255,255,255,.025);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.15);
+}
+
+.resume-direction h2 {
+    max-width:
+        600px;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2.5rem,
+            4.5vw,
+            4.4rem
+        );
+
+    line-height:
+        .94;
+
+    letter-spacing:
+        -.065em;
+}
+
+.resume-direction h2 span {
+    color:
+        var(--cyan);
+}
+
+.resume-direction > div:last-child {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+}
+
+.resume-direction p {
+    margin-bottom:
+        18px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.9;
+}
+
+.resume-direction p:last-child {
+    margin-bottom:
+        0;
+}
+
+
+/* =========================================================
+   RESUME PAGE RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .resume-skills-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .resume-direction {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            40px;
+    }
+
+    .timeline-top {
+        flex-direction:
+            column;
+
+        gap:
+            12px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .resume-actions {
+        flex-direction:
+            column;
+    }
+
+    .resume-actions .button {
+        width:
+            100%;
+    }
+
+    .resume-profile-card,
+    .resume-timeline-card,
+    .resume-direction {
+        padding:
+            25px;
+    }
+
+    .resume-timeline-card {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            18px;
+    }
+
+    .resume-project {
+        grid-template-columns:
+            34px 1fr;
+
+        gap:
+            14px;
+
+        padding:
+            19px;
+    }
+
+}
