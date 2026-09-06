@@ -1,105 +1,219 @@
 document.addEventListener("DOMContentLoaded", () => {
+    "use strict";
 
-    /* ==========================================
-       MOBILE NAVIGATION
-    ========================================== */
+    /* =========================================================
+       ELEMENTS
+    ========================================================= */
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navMenu = document.querySelector(".nav-menu");
+    const body = document.body;
 
-    if (menuToggle && navMenu) {
+    const menuToggle =
+        document.querySelector(".menu-toggle");
 
-        menuToggle.addEventListener("click", () => {
+    const navMenu =
+        document.querySelector(".nav-menu");
 
-            const isOpen =
-                navMenu.classList.toggle("open");
-
-            menuToggle.classList.toggle(
-                "open",
-                isOpen
-            );
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close navigation menu"
-                    : "Open navigation menu"
-            );
-
-        });
-
-
-        /* Close menu after selecting a page */
-
-        const navLinks =
-            navMenu.querySelectorAll(".nav-link");
-
-        navLinks.forEach((link) => {
-
-            link.addEventListener("click", () => {
-
-                navMenu.classList.remove("open");
-                menuToggle.classList.remove("open");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuToggle.setAttribute(
-                    "aria-label",
-                    "Open navigation menu"
-                );
-
-            });
-
-        });
-
-
-        /* Close when clicking outside */
-
-        document.addEventListener("click", (event) => {
-
-            const clickedInsideMenu =
-                navMenu.contains(event.target);
-
-            const clickedToggle =
-                menuToggle.contains(event.target);
-
-            if (
-                !clickedInsideMenu &&
-                !clickedToggle &&
-                navMenu.classList.contains("open")
-            ) {
-
-                navMenu.classList.remove("open");
-                menuToggle.classList.remove("open");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-
-        });
-
-    }
-
-
-    /* ==========================================
-       SCROLL REVEAL
-    ========================================== */
+    const navLinks =
+        document.querySelectorAll(".nav-link");
 
     const revealElements =
         document.querySelectorAll(".reveal");
 
-    if ("IntersectionObserver" in window) {
+    const heroPanel =
+        document.querySelector(".hero-panel");
+
+    const featuredProject =
+        document.querySelector(".featured-project");
+
+    const projectCards =
+        document.querySelectorAll(
+            ".preview-card, .project-card"
+        );
+
+    const capabilityCards =
+        document.querySelectorAll(
+            ".capability-row"
+        );
+
+    const buttons =
+        document.querySelectorAll(
+            ".button, .project-button, .nav-contact"
+        );
+
+    const yearElement =
+        document.querySelector(
+            "[data-current-year]"
+        );
+
+
+    /* =========================================================
+       PAGE LOAD
+    ========================================================= */
+
+    requestAnimationFrame(() => {
+        body.classList.add("page-loaded");
+    });
+
+
+    /* =========================================================
+       MOBILE NAVIGATION
+    ========================================================= */
+
+    const closeMobileMenu = () => {
+
+        if (!menuToggle || !navMenu) {
+            return;
+        }
+
+        navMenu.classList.remove("open");
+
+        menuToggle.classList.remove("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+        body.classList.remove(
+            "mobile-menu-open"
+        );
+    };
+
+
+    const openMobileMenu = () => {
+
+        if (!menuToggle || !navMenu) {
+            return;
+        }
+
+        navMenu.classList.add("open");
+
+        menuToggle.classList.add("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Close navigation menu"
+        );
+
+        body.classList.add(
+            "mobile-menu-open"
+        );
+    };
+
+
+    if (menuToggle && navMenu) {
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+
+                const isOpen =
+                    navMenu.classList.contains("open");
+
+                if (isOpen) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+
+            }
+        );
+
+
+        navLinks.forEach((link) => {
+
+            link.addEventListener(
+                "click",
+                () => {
+                    closeMobileMenu();
+                }
+            );
+
+        });
+
+
+        document.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    window.innerWidth > 900 ||
+                    !navMenu.classList.contains("open")
+                ) {
+                    return;
+                }
+
+                const clickedInsideNav =
+                    navMenu.contains(event.target);
+
+                const clickedToggle =
+                    menuToggle.contains(event.target);
+
+                if (
+                    !clickedInsideNav &&
+                    !clickedToggle
+                ) {
+                    closeMobileMenu();
+                }
+
+            }
+        );
+
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                if (
+                    window.innerWidth > 900
+                ) {
+                    closeMobileMenu();
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       ESCAPE KEY
+    ========================================================= */
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (
+                event.key === "Escape" &&
+                navMenu &&
+                navMenu.classList.contains("open")
+            ) {
+                closeMobileMenu();
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    if (
+        "IntersectionObserver" in window &&
+        revealElements.length > 0
+    ) {
 
         const revealObserver =
             new IntersectionObserver(
@@ -127,14 +241,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                     threshold: 0.12,
                     rootMargin:
-                        "0px 0px -50px 0px"
+                        "0px 0px -45px 0px"
                 }
             );
 
 
         revealElements.forEach((element) => {
 
-            revealObserver.observe(element);
+            revealObserver.observe(
+                element
+            );
 
         });
 
@@ -142,37 +258,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         revealElements.forEach((element) => {
 
-            element.classList.add("visible");
+            element.classList.add(
+                "visible"
+            );
 
         });
 
     }
 
 
-    /* ==========================================
-       PAGE LOAD ANIMATION
-    ========================================== */
-
-    document.body.classList.add(
-        "page-loaded"
-    );
-
-
-    /* ==========================================
+    /* =========================================================
        ACTIVE NAVIGATION
-    ========================================== */
+    ========================================================= */
 
-    const currentPage =
+    const currentFile =
         window.location.pathname
             .split("/")
+            .filter(Boolean)
             .pop() || "index.html";
 
-    const navigationLinks =
-        document.querySelectorAll(
-            ".nav-link"
-        );
 
-    navigationLinks.forEach((link) => {
+    navLinks.forEach((link) => {
 
         const href =
             link.getAttribute("href");
@@ -181,25 +287,31 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const linkPage =
-            href.split("/").pop();
+        const cleanHref =
+            href.split("#")[0];
+
+        const linkFile =
+            cleanHref
+                .split("/")
+                .pop() || "index.html";
 
         link.classList.toggle(
             "active",
-            linkPage === currentPage
+            linkFile === currentFile
         );
 
     });
 
 
-    /* ==========================================
-       SMOOTH INTERNAL ANCHORS
-    ========================================== */
+    /* =========================================================
+       SMOOTH INTERNAL LINKS
+    ========================================================= */
 
     const anchorLinks =
         document.querySelectorAll(
             'a[href^="#"]'
         );
+
 
     anchorLinks.forEach((link) => {
 
@@ -217,6 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
+
                 const target =
                     document.querySelector(
                         targetId
@@ -226,30 +339,31 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
+
                 event.preventDefault();
+
 
                 const header =
                     document.querySelector(
                         ".site-header"
                     );
 
+
                 const headerHeight =
                     header
                         ? header.offsetHeight
                         : 0;
 
-                const top =
-                    target.getBoundingClientRect()
-                        .top
-                    +
-                    window.scrollY
-                    -
-                    headerHeight
-                    -
-                    15;
+
+                const targetTop =
+                    target.getBoundingClientRect().top +
+                    window.scrollY -
+                    headerHeight -
+                    12;
+
 
                 window.scrollTo({
-                    top,
+                    top: targetTop,
                     behavior: "smooth"
                 });
 
@@ -259,61 +373,215 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* ==========================================
-       PROJECT CARD TILT
-       Desktop only
-    ========================================== */
+    /* =========================================================
+       HERO PANEL — 3D POINTER MOTION
+    ========================================================= */
 
-    const interactiveCards =
-        document.querySelectorAll(
-            ".preview-card, .project-card"
-        );
+    if (heroPanel) {
 
-    interactiveCards.forEach((card) => {
-
-        card.addEventListener(
-            "mousemove",
+        heroPanel.addEventListener(
+            "pointermove",
             (event) => {
 
                 if (
-                    window.innerWidth <= 950
+                    window.innerWidth <= 950 ||
+                    event.pointerType === "touch"
                 ) {
                     return;
                 }
 
-                const rect =
-                    card.getBoundingClientRect();
 
-                const mouseX =
+                const rect =
+                    heroPanel.getBoundingClientRect();
+
+
+                const x =
                     event.clientX -
                     rect.left;
 
-                const mouseY =
+
+                const y =
                     event.clientY -
                     rect.top;
 
-                const centerX =
-                    rect.width / 2;
 
-                const centerY =
-                    rect.height / 2;
+                const percentX =
+                    (x / rect.width) * 100;
+
+
+                const percentY =
+                    (y / rect.height) * 100;
+
 
                 const rotateX =
-                    ((mouseY - centerY) /
-                        centerY) *
-                    -1.8;
+                    ((y - rect.height / 2) /
+                        (rect.height / 2)) *
+                    -1.7;
+
 
                 const rotateY =
-                    ((mouseX - centerX) /
-                        centerX) *
-                    1.8;
+                    ((x - rect.width / 2) /
+                        (rect.width / 2)) *
+                    1.7;
+
+
+                heroPanel.style.setProperty(
+                    "--glow-x",
+                    `${percentX}%`
+                );
+
+
+                heroPanel.style.setProperty(
+                    "--glow-y",
+                    `${percentY}%`
+                );
+
+
+                heroPanel.style.transform =
+                    `
+                    perspective(1100px)
+                    translateY(-5px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    scale3d(1.008, 1.008, 1.008)
+                    `;
+
+            }
+        );
+
+
+        heroPanel.addEventListener(
+            "pointerleave",
+            () => {
+
+                heroPanel.style.transform =
+                    "";
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       FEATURED PROJECT — SUBTLE 3D MOTION
+    ========================================================= */
+
+    if (featuredProject) {
+
+        featuredProject.addEventListener(
+            "pointermove",
+            (event) => {
+
+                if (
+                    window.innerWidth <= 950 ||
+                    event.pointerType === "touch"
+                ) {
+                    return;
+                }
+
+
+                const rect =
+                    featuredProject.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                const rotateX =
+                    ((y - rect.height / 2) /
+                        (rect.height / 2)) *
+                    -0.65;
+
+
+                const rotateY =
+                    ((x - rect.width / 2) /
+                        (rect.width / 2)) *
+                    0.65;
+
+
+                featuredProject.style.transform =
+                    `
+                    perspective(1300px)
+                    translateY(-4px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    `;
+
+            }
+        );
+
+
+        featuredProject.addEventListener(
+            "pointerleave",
+            () => {
+
+                featuredProject.style.transform =
+                    "";
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       PROJECT CARDS — TILT
+    ========================================================= */
+
+    projectCards.forEach((card) => {
+
+        card.addEventListener(
+            "pointermove",
+            (event) => {
+
+                if (
+                    window.innerWidth <= 950 ||
+                    event.pointerType === "touch"
+                ) {
+                    return;
+                }
+
+
+                const rect =
+                    card.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                const rotateX =
+                    ((y - rect.height / 2) /
+                        (rect.height / 2)) *
+                    -1.5;
+
+
+                const rotateY =
+                    ((x - rect.width / 2) /
+                        (rect.width / 2)) *
+                    1.5;
+
 
                 card.style.transform =
                     `
-                        translateY(-6px)
-                        perspective(900px)
-                        rotateX(${rotateX}deg)
-                        rotateY(${rotateY}deg)
+                    perspective(1000px)
+                    translateY(-6px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
                     `;
 
             }
@@ -321,10 +589,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         card.addEventListener(
-            "mouseleave",
+            "pointerleave",
             () => {
 
-                card.style.transform = "";
+                card.style.transform =
+                    "";
 
             }
         );
@@ -332,43 +601,112 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* ==========================================
-       BUTTON PRESS FEEDBACK
-    ========================================== */
+    /* =========================================================
+       CAPABILITY CARDS — TILT
+    ========================================================= */
 
-    const buttons =
-        document.querySelectorAll(
-            ".button, .project-button, .nav-contact"
+    capabilityCards.forEach((card) => {
+
+        card.addEventListener(
+            "pointermove",
+            (event) => {
+
+                if (
+                    window.innerWidth <= 950 ||
+                    event.pointerType === "touch"
+                ) {
+                    return;
+                }
+
+
+                const rect =
+                    card.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                const rotateX =
+                    ((y - rect.height / 2) /
+                        (rect.height / 2)) *
+                    -1.1;
+
+
+                const rotateY =
+                    ((x - rect.width / 2) /
+                        (rect.width / 2)) *
+                    1.1;
+
+
+                card.style.transform =
+                    `
+                    perspective(900px)
+                    translateY(-4px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    `;
+
+            }
         );
+
+
+        card.addEventListener(
+            "pointerleave",
+            () => {
+
+                card.style.transform =
+                    "";
+
+            }
+        );
+
+    });
+
+
+    /* =========================================================
+       BUTTON PRESS FEEDBACK
+    ========================================================= */
 
     buttons.forEach((button) => {
 
         button.addEventListener(
-            "mousedown",
+            "pointerdown",
             () => {
 
-                button.style.transform =
-                    "scale(0.97)";
+                button.classList.add(
+                    "is-pressed"
+                );
 
             }
         );
 
 
         button.addEventListener(
-            "mouseup",
+            "pointerup",
             () => {
 
-                button.style.transform = "";
+                button.classList.remove(
+                    "is-pressed"
+                );
 
             }
         );
 
 
         button.addEventListener(
-            "mouseleave",
+            "pointerleave",
             () => {
 
-                button.style.transform = "";
+                button.classList.remove(
+                    "is-pressed"
+                );
 
             }
         );
@@ -376,51 +714,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* ==========================================
-       CURRENT YEAR
-    ========================================== */
-
-    const yearElement =
-        document.querySelector(
-            "[data-current-year]"
-        );
-
-    if (yearElement) {
-
-        yearElement.textContent =
-            new Date().getFullYear();
-
-    }
-
-
-    /* ==========================================
-       EXTERNAL LINK SAFETY
-    ========================================== */
-
-    const externalLinks =
-        document.querySelectorAll(
-            'a[target="_blank"]'
-        );
-
-    externalLinks.forEach((link) => {
-
-        link.setAttribute(
-            "rel",
-            "noopener noreferrer"
-        );
-
-    });
-
-
-    /* ==========================================
+    /* =========================================================
        EMAIL COPY SUPPORT
-       Used on the Contact page
-    ========================================== */
+       Used by contact.html later
+    ========================================================= */
 
     const copyEmailButtons =
         document.querySelectorAll(
             "[data-copy-email]"
         );
+
 
     copyEmailButtons.forEach((button) => {
 
@@ -433,9 +736,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         "data-copy-email"
                     );
 
+
                 if (!email) {
                     return;
                 }
+
 
                 try {
 
@@ -443,26 +748,33 @@ document.addEventListener("DOMContentLoaded", () => {
                         email
                     );
 
+
                     const originalText =
                         button.textContent;
 
+
                     button.textContent =
                         "Email copied ✓";
+
+
+                    button.classList.add(
+                        "copied"
+                    );
+
 
                     setTimeout(() => {
 
                         button.textContent =
                             originalText;
 
+                        button.classList.remove(
+                            "copied"
+                        );
+
                     }, 1800);
 
-                } catch (error) {
 
-                    /*
-                     * Clipboard access can be
-                     * unavailable in some browsers.
-                     * The normal mailto link still works.
-                     */
+                } catch (error) {
 
                     window.location.href =
                         `mailto:${email}`;
@@ -475,28 +787,85 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* ==========================================
-       HERO PARALLAX
-       Desktop only
-    ========================================== */
+    /* =========================================================
+       CURSOR POSITION FOR INTERACTIVE GLOW
+    ========================================================= */
 
-    const heroGlowOne =
+    const interactiveElements =
+        document.querySelectorAll(
+            ".hero-panel, .featured-project, .preview-card, .project-card, .capability-row"
+        );
+
+
+    interactiveElements.forEach((element) => {
+
+        element.addEventListener(
+            "pointermove",
+            (event) => {
+
+                if (
+                    event.pointerType === "touch"
+                ) {
+                    return;
+                }
+
+
+                const rect =
+                    element.getBoundingClientRect();
+
+
+                const x =
+                    ((event.clientX - rect.left) /
+                        rect.width) *
+                    100;
+
+
+                const y =
+                    ((event.clientY - rect.top) /
+                        rect.height) *
+                    100;
+
+
+                element.style.setProperty(
+                    "--mouse-x",
+                    `${x}%`
+                );
+
+
+                element.style.setProperty(
+                    "--mouse-y",
+                    `${y}%`
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =========================================================
+       PARALLAX BACKGROUND
+    ========================================================= */
+
+    const glowOne =
         document.querySelector(
             ".hero-glow-one"
         );
 
-    const heroGlowTwo =
+    const glowTwo =
         document.querySelector(
             ".hero-glow-two"
         );
 
+
     if (
-        heroGlowOne &&
-        heroGlowTwo &&
-        window.innerWidth > 950
+        glowOne &&
+        glowTwo
     ) {
 
-        let ticking = false;
+        let ticking =
+            false;
+
 
         window.addEventListener(
             "scroll",
@@ -506,36 +875,51 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
+
                 window.requestAnimationFrame(
                     () => {
 
-                        const scroll =
+                        if (
+                            window.innerWidth <= 950
+                        ) {
+                            ticking = false;
+                            return;
+                        }
+
+
+                        const scrollY =
                             window.scrollY;
 
-                        heroGlowOne.style.transform =
+
+                        glowOne.style.transform =
                             `
-                                translate3d(
-                                    0,
-                                    ${scroll * 0.07}px,
-                                    0
-                                )
+                            translate3d(
+                                0,
+                                ${scrollY * 0.055}px,
+                                0
+                            )
                             `;
 
-                        heroGlowTwo.style.transform =
+
+                        glowTwo.style.transform =
                             `
-                                translate3d(
-                                    0,
-                                    ${scroll * -0.04}px,
-                                    0
-                                )
+                            translate3d(
+                                0,
+                                ${scrollY * -0.035}px,
+                                0
+                            )
                             `;
 
-                        ticking = false;
+
+                        ticking =
+                            false;
 
                     }
                 );
 
-                ticking = true;
+
+                ticking =
+                    true;
 
             },
             {
@@ -546,40 +930,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ==========================================
-       KEYBOARD ACCESSIBILITY
-    ========================================== */
+    /* =========================================================
+       CURRENT YEAR
+    ========================================================= */
 
-    document.addEventListener(
-        "keydown",
-        (event) => {
+    if (yearElement) {
 
-            if (
-                event.key === "Escape" &&
-                navMenu &&
-                navMenu.classList.contains("open")
-            ) {
+        yearElement.textContent =
+            new Date().getFullYear();
 
-                navMenu.classList.remove(
-                    "open"
-                );
+    }
 
-                if (menuToggle) {
 
-                    menuToggle.classList.remove(
-                        "open"
-                    );
+    /* =========================================================
+       EXTERNAL LINK SECURITY
+    ========================================================= */
 
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
+    const externalLinks =
+        document.querySelectorAll(
+            'a[target="_blank"]'
+        );
 
-                }
 
-            }
+    externalLinks.forEach((link) => {
 
-        }
-    );
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
+
+    });
+
+
+    /* =========================================================
+       PREVENT ACCIDENTAL DOUBLE-TAP ZOOM ON UI
+    ========================================================= */
+
+    const interactiveUI =
+        document.querySelectorAll(
+            ".button, .project-button, .nav-link, .menu-toggle"
+        );
+
+
+    interactiveUI.forEach((element) => {
+
+        element.style.touchAction =
+            "manipulation";
+
+    });
+
 
 });
