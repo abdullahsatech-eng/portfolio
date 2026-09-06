@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Abdullah Khan — Software Engineering</title>
+    <title>Abdullah Khan | Software Engineering Student</title>
 
     <meta
         name="description"
-        content="Abdullah Khan — Software Engineering student at Abasyn University, Islamabad. C++, Python, SQL, software design, database systems and practical project work."
+        content="Abdullah Khan — Software Engineering student at Abasyn University, Islamabad. Exploring software development, databases, data structures and software design."
     >
 
     <meta name="theme-color" content="#05070c">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -22,166 +22,236 @@
          NAVIGATION
     ========================== -->
 
-    <nav class="nav">
+    <header class="site-header">
 
-        <div class="container nav-inner">
+        <nav class="navbar container">
 
-            <a href="#top" class="brand">
-                Abdullah<span class="brand-dot">.</span>
+            <a href="index.html" class="logo">
+                <span>Abdullah</span>
+                <strong>Khan</strong>
             </a>
 
-            <ul class="nav-links">
-                <li>
-                    <a href="#about">About</a>
-                </li>
 
-                <li>
-                    <a href="#work">Work</a>
-                </li>
-
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
-
-                <li>
-                    <a href="#education">Education</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-
-            <a
-                class="nav-cta"
-                href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
-                target="_blank"
-                rel="noopener noreferrer"
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="site-menu"
             >
-                LinkedIn ↗
-            </a>
-
-        </div>
-
-    </nav>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
 
-    <main id="top">
+            <div class="nav-menu" id="site-menu">
+
+                <a href="index.html" class="nav-link active">
+                    Home
+                </a>
+
+                <a href="about.html" class="nav-link">
+                    About
+                </a>
+
+                <a href="projects.html" class="nav-link">
+                    Projects
+                </a>
+
+                <a href="skills.html" class="nav-link">
+                    Skills
+                </a>
+
+                <a href="resume.html" class="nav-link">
+                    Resume
+                </a>
+
+                <a
+                    href="contact.html"
+                    class="nav-link nav-contact"
+                >
+                    Contact
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
 
         <!-- =========================
              HERO
         ========================== -->
 
-        <header class="hero">
+        <section class="hero">
 
-            <div class="container hero-layout">
+            <div class="hero-grid-overlay"></div>
 
-                <div class="hero-content">
+            <div class="hero-glow hero-glow-one"></div>
+            <div class="hero-glow hero-glow-two"></div>
 
-                    <div class="eyebrow">
-                        <span class="eyebrow-dot"></span>
 
-                        5th Semester · Software Engineering · Islamabad
+            <div class="container hero-container">
+
+                <div class="hero-content reveal">
+
+                    <div class="hero-eyebrow">
+                        <span class="status-dot"></span>
+
+                        Software Engineering · 5th Semester
+
                     </div>
 
 
-                    <h1>
-                        Abdullah Khan
-                        <br>
+                    <h1 class="hero-title">
 
-                        <span class="gradient-text">
-                            Software Engineering.
+                        <span class="hero-name">
+                            Abdullah Khan
                         </span>
+
+                        <span class="hero-role">
+                            Software Engineering
+                            <span class="gradient-text">Student.</span>
+                        </span>
+
                     </h1>
 
 
                     <p class="hero-description">
+
                         I build software systems with a focus on understanding
-                        how they work — from programming and data structures to
-                        databases, software design, and system analysis.
+                        <strong>how they work</strong> — from programming and
+                        data structures to databases, software design and
+                        system analysis.
+
                     </p>
 
 
                     <div class="hero-actions">
 
                         <a
-                            href="#work"
+                            href="projects.html"
                             class="button button-primary"
                         >
-                            Explore my work ↓
+                            Explore projects
+                            <span>↗</span>
                         </a>
+
+
+                        <a
+                            href="about.html"
+                            class="button button-secondary"
+                        >
+                            About me
+                            <span>→</span>
+                        </a>
+
 
                         <a
                             href="https://github.com/abdullahsatech-eng"
-                            class="button"
+                            class="button button-ghost"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            GitHub ↗
+                            GitHub
+                            <span>↗</span>
                         </a>
 
-                        <a
-                            href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
-                            class="button"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            LinkedIn ↗
-                        </a>
-
-                    </div>
-
-
-                    <div class="scroll-indicator">
-                        <span class="scroll-line"></span>
-                        Selected work
                     </div>
 
                 </div>
 
 
-                <aside class="hero-card">
+                <!-- =========================
+                     HERO INFO PANEL
+                ========================== -->
 
-                    <div class="card-label">
-                        Current focus
+                <aside class="hero-panel reveal reveal-delay">
+
+                    <div class="panel-top">
+
+                        <span class="panel-label">
+                            Currently
+                        </span>
+
+                        <span class="panel-index">
+                            01
+                        </span>
+
                     </div>
 
+
                     <h2>
-                        Turning fundamentals
-                        into practical software.
+                        Learning by
+                        <span>building.</span>
                     </h2>
 
+
                     <p>
-                        I am strengthening my engineering foundation by building,
-                        documenting, and improving real project work through
-                        programming, database systems, software design, and
-                        requirements analysis.
+                        Strengthening software engineering fundamentals through
+                        academic projects, hands-on implementation, documentation,
+                        and continuous improvement.
                     </p>
 
 
-                    <div class="card-divider"></div>
+                    <div class="panel-divider"></div>
 
 
-                    <div class="focus-list">
+                    <div class="panel-facts">
 
-                        <div class="focus-item">
-                            <span class="focus-dot"></span>
-                            Software development
+                        <div class="panel-fact">
+
+                            <span class="fact-label">
+                                University
+                            </span>
+
+                            <span class="fact-value">
+                                Abasyn University
+                            </span>
+
                         </div>
 
-                        <div class="focus-item">
-                            <span class="focus-dot"></span>
-                            Database systems
+
+                        <div class="panel-fact">
+
+                            <span class="fact-label">
+                                Location
+                            </span>
+
+                            <span class="fact-value">
+                                Islamabad, Pakistan
+                            </span>
+
                         </div>
 
-                        <div class="focus-item">
-                            <span class="focus-dot"></span>
-                            Software design
+
+                        <div class="panel-fact">
+
+                            <span class="fact-label">
+                                Focus
+                            </span>
+
+                            <span class="fact-value">
+                                Practical Software
+                            </span>
+
                         </div>
 
-                        <div class="focus-item">
-                            <span class="focus-dot"></span>
-                            Practical project work
+
+                        <div class="panel-fact">
+
+                            <span class="fact-label">
+                                Open to
+                            </span>
+
+                            <span class="fact-value">
+                                Internships · Freelance
+                            </span>
+
                         </div>
 
                     </div>
@@ -190,143 +260,380 @@
 
             </div>
 
-        </header>
+
+            <div class="container hero-bottom reveal">
+
+                <div class="hero-scroll-label">
+                    Scroll to explore
+                </div>
+
+
+                <div class="hero-line"></div>
+
+
+                <div class="hero-stack">
+
+                    <span>C++</span>
+                    <span>Python</span>
+                    <span>SQL</span>
+                    <span>PL/SQL</span>
+                    <span>UML</span>
+
+                </div>
+
+            </div>
+
+        </section>
 
 
         <!-- =========================
-             ABOUT
+             INTRODUCTION
         ========================== -->
 
-        <section class="section" id="about">
+        <section class="section intro-section">
 
             <div class="container">
 
-                <div class="section-label">
-                    01 / Profile
+                <div class="section-kicker">
+                    01 / PROFILE
                 </div>
 
-                <h2 class="section-title">
-                    From coursework
-                    to engineering.
-                </h2>
 
-                <p class="section-intro">
-                    My software engineering journey started from a pre-medical
-                    background and grew through programming, databases, data
-                    structures, software design, and hands-on academic projects.
-                </p>
+                <div class="intro-grid">
+
+                    <div class="intro-heading reveal">
+
+                        <h2>
+                            Building the
+                            foundation
+                            <span>properly.</span>
+                        </h2>
+
+                    </div>
 
 
-                <div class="about-layout">
+                    <div class="intro-content reveal reveal-delay">
 
-                    <div class="about-copy">
-
-                        <p>
-                            I am currently a
-                            <strong>
-                                5th-semester Software Engineering student
-                            </strong>
-                            at Abasyn University, Islamabad.
+                        <p class="large-text">
+                            My journey into software engineering started from
+                            a pre-medical background. Since then, I have been
+                            learning how software is designed, implemented,
+                            structured, and improved.
                         </p>
 
 
-                        <br>
-
-
                         <p>
-                            My work so far has covered
-                            <strong>
-                                C++, Python, SQL/PL-SQL, object-oriented
-                                programming, data structures, database design,
-                                UML, requirements engineering, GRASP, and
-                                design patterns.
-                            </strong>
+                            Through university coursework and project work,
+                            I have worked with C++, Python, SQL/PL-SQL,
+                            object-oriented programming, data structures,
+                            databases, UML, requirements engineering,
+                            GRASP, and design patterns.
                         </p>
 
 
-                        <br>
+                        <a
+                            href="about.html"
+                            class="text-link"
+                        >
+                            More about me
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FEATURED PROJECT
+        ========================== -->
+
+        <section class="section featured-section">
+
+            <div class="container">
+
+                <div class="section-heading-row reveal">
+
+                    <div>
+                        <div class="section-kicker">
+                            02 / FEATURED WORK
+                        </div>
+
+                        <h2 class="section-title">
+                            Work that shows
+                            <span>how I think.</span>
+                        </h2>
+                    </div>
+
+
+                    <a
+                        href="projects.html"
+                        class="section-link"
+                    >
+                        View all projects
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+
+                <article class="featured-project reveal">
+
+                    <div class="featured-main">
+
+                        <div class="project-number">
+                            01
+                        </div>
+
+
+                        <div class="project-category">
+                            Database Systems
+                        </div>
+
+
+                        <h3>
+                            Automated Library
+                            Management System
+                        </h3>
 
 
                         <p>
-                            I care about understanding
-                            <strong>
-                                how a system works
-                            </strong>,
-                            not only making it run.
+                            A database-driven library management system
+                            reconstructed from surviving academic project
+                            documentation. The documented system covers books,
+                            authors, categories, members, borrowing, returns,
+                            reservations, and fines using Oracle SQL and PL/SQL.
                         </p>
 
 
-                        <br>
+                        <div class="project-tags">
 
+                            <span>Oracle SQL</span>
+                            <span>PL/SQL</span>
+                            <span>3NF</span>
+                            <span>Triggers</span>
+                            <span>Stored Procedures</span>
+                            <span>Views</span>
+                            <span>Indexing</span>
+
+                        </div>
+
+
+                        <a
+                            href="https://github.com/abdullahsatech-eng/automated-library-management-system"
+                            class="project-button"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Open repository
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+
+                    <div class="featured-side">
+
+                        <div class="feature-line"></div>
+
+
+                        <div class="feature-item">
+
+                            <span>
+                                RELATIONAL DESIGN
+                            </span>
+
+                            <p>
+                                8 related tables documented and normalized
+                                to Third Normal Form.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-item">
+
+                            <span>
+                                DATABASE LOGIC
+                            </span>
+
+                            <p>
+                                Queries, joins, aggregation, grouping,
+                                nested queries, views, indexes and PL/SQL.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-item">
+
+                            <span>
+                                AUTOMATION
+                            </span>
+
+                            <p>
+                                Documented trigger for overdue fine generation
+                                and procedure for book issuing.
+                            </p>
+
+                        </div>
+
+
+                        <div class="feature-item">
+
+                            <span>
+                                VALIDATION
+                            </span>
+
+                            <p>
+                                Constraint, availability, fine and trigger
+                                validation documented from the project.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CAPABILITIES
+        ========================== -->
+
+        <section class="section capabilities-section">
+
+            <div class="container">
+
+                <div class="section-kicker reveal">
+                    03 / CAPABILITIES
+                </div>
+
+
+                <div class="capabilities-grid">
+
+                    <div class="capabilities-heading reveal">
+
+                        <h2>
+                            Fundamentals
+                            before
+                            <span>shortcuts.</span>
+                        </h2>
 
                         <p>
-                            My current goal is to move beyond isolated coursework
-                            and consistently build, document, and improve
-                            practical software systems.
+                            A growing technical foundation built around
+                            understanding systems rather than simply using
+                            technologies.
                         </p>
 
                     </div>
 
 
-                    <div class="profile-card">
+                    <div class="capability-list reveal reveal-delay">
 
-                        <div class="profile-heading">
-                            Profile
+                        <div class="capability-row">
+
+                            <span>
+                                01
+                            </span>
+
+                            <div>
+                                <h3>
+                                    Programming
+                                </h3>
+
+                                <p>
+                                    C++ · Python · Object-Oriented Programming
+                                    · Problem Solving
+                                </p>
+                            </div>
+
                         </div>
 
 
-                        <div class="profile-row">
-                            <span class="profile-key">
-                                Role
+                        <div class="capability-row">
+
+                            <span>
+                                02
                             </span>
 
-                            <span class="profile-value">
-                                Software Engineering Student
-                            </span>
+                            <div>
+                                <h3>
+                                    Data & Algorithms
+                                </h3>
+
+                                <p>
+                                    Data Structures · Algorithms · SQL · PL/SQL
+                                </p>
+                            </div>
+
                         </div>
 
 
-                        <div class="profile-row">
-                            <span class="profile-key">
-                                University
+                        <div class="capability-row">
+
+                            <span>
+                                03
                             </span>
 
-                            <span class="profile-value">
-                                Abasyn University
-                            </span>
+                            <div>
+                                <h3>
+                                    Software Design
+                                </h3>
+
+                                <p>
+                                    UML · GRASP · Design Patterns ·
+                                    Requirements Engineering
+                                </p>
+                            </div>
+
                         </div>
 
 
-                        <div class="profile-row">
-                            <span class="profile-key">
-                                Location
+                        <div class="capability-row">
+
+                            <span>
+                                04
                             </span>
 
-                            <span class="profile-value">
-                                Islamabad, Pakistan
-                            </span>
+                            <div>
+                                <h3>
+                                    Databases
+                                </h3>
+
+                                <p>
+                                    Relational Design · 3NF · Triggers ·
+                                    Procedures · Views · Indexing
+                                </p>
+                            </div>
+
                         </div>
 
 
-                        <div class="profile-row">
-                            <span class="profile-key">
-                                Focus
+                        <div class="capability-row">
+
+                            <span>
+                                05
                             </span>
 
-                            <span class="profile-value">
-                                Software Development
-                            </span>
-                        </div>
+                            <div>
+                                <h3>
+                                    Tools
+                                </h3>
 
+                                <p>
+                                    Git · GitHub · EMU8086
+                                </p>
+                            </div>
 
-                        <div class="profile-row">
-                            <span class="profile-key">
-                                Open to
-                            </span>
-
-                            <span class="profile-value">
-                                Internships · Freelance
-                            </span>
                         </div>
 
                     </div>
@@ -339,196 +646,72 @@
 
 
         <!-- =========================
-             WORK
+             PROJECT PREVIEW
         ========================== -->
 
-        <section class="section" id="work">
+        <section class="section project-preview-section">
 
             <div class="container">
 
-                <div class="section-label">
-                    02 / Selected Work
+                <div class="section-heading-row reveal">
+
+                    <div>
+
+                        <div class="section-kicker">
+                            04 / PROJECTS
+                        </div>
+
+                        <h2 class="section-title">
+                            More of my
+                            <span>work.</span>
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="projects.html"
+                        class="section-link"
+                    >
+                        Explore projects
+                        <span>→</span>
+                    </a>
+
                 </div>
 
-                <h2 class="section-title">
-                    Projects built
-                    with purpose.
-                </h2>
 
-                <p class="section-intro">
-                    Academic work is the foundation of my current portfolio.
-                    I am progressively rebuilding and documenting these projects
-                    with a stronger engineering mindset.
-                </p>
+                <div class="preview-grid">
 
 
-                <!-- FEATURED PROJECT -->
-
-                <article class="featured-project reveal">
-
-                    <div class="featured-main">
-
-                        <div class="project-type">
-                            Featured project · Database systems
-                        </div>
-
-                        <h3 class="featured-title">
-                            Automated Library
-                            Management System
-                        </h3>
-
-
-                        <p class="featured-description">
-                            A database-driven library management system
-                            reconstructed from surviving academic project
-                            documentation. The documented system covers books,
-                            authors, categories, members, borrowing, returns,
-                            reservations, and fines using Oracle SQL and PL/SQL.
-                        </p>
-
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                Oracle SQL
-                            </span>
-
-                            <span class="tag">
-                                PL/SQL
-                            </span>
-
-                            <span class="tag">
-                                3NF
-                            </span>
-
-                            <span class="tag">
-                                Triggers
-                            </span>
-
-                            <span class="tag">
-                                Stored Procedures
-                            </span>
-
-                            <span class="tag">
-                                Views
-                            </span>
-
-                            <span class="tag">
-                                Indexing
-                            </span>
-
-                        </div>
-
-
-                        <a
-                            class="button button-primary"
-                            href="https://github.com/abdullahsatech-eng/automated-library-management-system"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            View repository ↗
-                        </a>
-
-                    </div>
-
-
-                    <div class="featured-side">
-
-                        <div class="feature-block">
-
-                            <div class="feature-title">
-                                Relational design
-                            </div>
-
-                            <div class="feature-text">
-                                8 related tables documented and normalized
-                                to Third Normal Form.
-                            </div>
-
-                        </div>
-
-
-                        <div class="feature-block">
-
-                            <div class="feature-title">
-                                Database logic
-                            </div>
-
-                            <div class="feature-text">
-                                SQL queries, joins, grouping, aggregation,
-                                nested queries, views, indexes, and PL/SQL.
-                            </div>
-
-                        </div>
-
-
-                        <div class="feature-block">
-
-                            <div class="feature-title">
-                                Automation
-                            </div>
-
-                            <div class="feature-text">
-                                A documented trigger for overdue fine
-                                generation and a procedure for book issuing.
-                            </div>
-
-                        </div>
-
-
-                        <div class="feature-block">
-
-                            <div class="feature-title">
-                                Validation
-                            </div>
-
-                            <div class="feature-text">
-                                Constraint, availability, fine, and trigger
-                                validation documented from the original work.
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PROJECT GRID -->
-
-                <div class="project-grid">
-
-
-                    <article class="project-card reveal">
+                    <article class="preview-card reveal">
 
                         <div>
 
-                            <span class="project-number">
+                            <span class="preview-number">
                                 02
                             </span>
 
                             <h3>
-                                Restaurant Management System
+                                Restaurant
+                                Management System
                             </h3>
 
                             <p>
-                                A C++ software design project covering the
-                                order-to-payment workflow. The project used
-                                UML modeling, GRASP principles, and four design
-                                patterns to structure responsibilities and
-                                improve maintainability.
+                                C++ software design project covering an
+                                order-to-payment workflow using UML,
+                                GRASP principles and four design patterns.
                             </p>
 
                         </div>
 
 
-                        <div class="project-footer">
+                        <div class="preview-bottom">
 
-                            <span class="project-stack">
-                                C++ · UML · GRASP · DESIGN PATTERNS
+                            <span>
+                                C++ · UML · DESIGN PATTERNS
                             </span>
 
-                            <span class="project-arrow">
+                            <span class="preview-arrow">
                                 ↗
                             </span>
 
@@ -537,11 +720,11 @@
                     </article>
 
 
-                    <article class="project-card reveal">
+                    <article class="preview-card reveal reveal-delay">
 
                         <div>
 
-                            <span class="project-number">
+                            <span class="preview-number">
                                 03
                             </span>
 
@@ -551,22 +734,21 @@
                             </h3>
 
                             <p>
-                                A C++ console-based system demonstrating how
-                                queues, stacks, singly and doubly linked lists,
-                                and sorting can work together to manage feed
-                                operations and navigation.
+                                C++ console-based system using queues,
+                                stacks, linked lists and sorting for feed
+                                operations.
                             </p>
 
                         </div>
 
 
-                        <div class="project-footer">
+                        <div class="preview-bottom">
 
-                            <span class="project-stack">
-                                C++ · DATA STRUCTURES · ALGORITHMS
+                            <span>
+                                C++ · DATA STRUCTURES
                             </span>
 
-                            <span class="project-arrow">
+                            <span class="preview-arrow">
                                 ↗
                             </span>
 
@@ -575,11 +757,11 @@
                     </article>
 
 
-                    <article class="project-card reveal">
+                    <article class="preview-card reveal">
 
                         <div>
 
-                            <span class="project-number">
+                            <span class="preview-number">
                                 04
                             </span>
 
@@ -590,95 +772,21 @@
 
                             <p>
                                 Requirements and system analysis for a proposed
-                                web-based university course registration system,
-                                including stakeholder analysis, user stories,
-                                acceptance criteria, workflows, and UML models.
+                                web-based registration system with stakeholder
+                                analysis, user stories, acceptance criteria,
+                                workflows and UML.
                             </p>
 
                         </div>
 
 
-                        <div class="project-footer">
+                        <div class="preview-bottom">
 
-                            <span class="project-stack">
-                                SRS · UML · REQUIREMENTS ENGINEERING
+                            <span>
+                                SRS · UML · REQUIREMENTS
                             </span>
 
-                            <span class="project-arrow">
-                                ↗
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card reveal">
-
-                        <div>
-
-                            <span class="project-number">
-                                05
-                            </span>
-
-                            <h3>
-                                Digital Watch Application
-                            </h3>
-
-                            <p>
-                                A Python application developed around real-time
-                                programming, GUI interaction, event-driven
-                                behavior, current-time display, and 12/24-hour
-                                format switching.
-                            </p>
-
-                        </div>
-
-
-                        <div class="project-footer">
-
-                            <span class="project-stack">
-                                PYTHON · GUI · EVENT-DRIVEN
-                            </span>
-
-                            <span class="project-arrow">
-                                ↗
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card reveal">
-
-                        <div>
-
-                            <span class="project-number">
-                                06
-                            </span>
-
-                            <h3>
-                                8086 LED Blinking
-                                Pattern Generator
-                            </h3>
-
-                            <p>
-                                An Assembly project using port programming,
-                                bit manipulation, and custom delay loops to
-                                generate LED blinking patterns.
-                            </p>
-
-                        </div>
-
-
-                        <div class="project-footer">
-
-                            <span class="project-stack">
-                                8086 ASSEMBLY · EMU8086
-                            </span>
-
-                            <span class="project-arrow">
+                            <span class="preview-arrow">
                                 ↗
                             </span>
 
@@ -695,429 +803,53 @@
 
 
         <!-- =========================
-             SKILLS
+             CONTACT CTA
         ========================== -->
 
-        <section class="section" id="skills">
+        <section class="section contact-preview">
 
             <div class="container">
 
-                <div class="section-label">
-                    03 / Capabilities
-                </div>
-
-                <h2 class="section-title">
-                    A foundation built
-                    around understanding.
-                </h2>
-
-                <p class="section-intro">
-                    My current technical foundation spans programming,
-                    algorithms, database systems, software design, and
-                    requirements analysis.
-                </p>
-
-
-                <div class="skills-layout">
-
-
-                    <div class="skills-statement">
-                        I care about understanding
-                        <span>
-                            how systems work,
-                        </span>
-                        how they are structured,
-                        and how they can be improved.
-                    </div>
-
-
-                    <div class="skill-groups">
-
-
-                        <div class="skill-group">
-
-                            <div class="skill-name">
-                                Programming
-                            </div>
-
-                            <div class="skill-list">
-
-                                <span class="skill">
-                                    C++
-                                </span>
-
-                                <span class="skill">
-                                    Python
-                                </span>
-
-                                <span class="skill">
-                                    Object-Oriented Programming
-                                </span>
-
-                                <span class="skill">
-                                    Problem Solving
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-group">
-
-                            <div class="skill-name">
-                                Data & Algorithms
-                            </div>
-
-                            <div class="skill-list">
-
-                                <span class="skill">
-                                    Data Structures
-                                </span>
-
-                                <span class="skill">
-                                    Algorithms
-                                </span>
-
-                                <span class="skill">
-                                    SQL
-                                </span>
-
-                                <span class="skill">
-                                    PL/SQL
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-group">
-
-                            <div class="skill-name">
-                                Software Design
-                            </div>
-
-                            <div class="skill-list">
-
-                                <span class="skill">
-                                    UML
-                                </span>
-
-                                <span class="skill">
-                                    GRASP
-                                </span>
-
-                                <span class="skill">
-                                    Design Patterns
-                                </span>
-
-                                <span class="skill">
-                                    Requirements Engineering
-                                </span>
-
-                                <span class="skill">
-                                    System Analysis
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-group">
-
-                            <div class="skill-name">
-                                Databases
-                            </div>
-
-                            <div class="skill-list">
-
-                                <span class="skill">
-                                    Relational Database Design
-                                </span>
-
-                                <span class="skill">
-                                    3NF Normalization
-                                </span>
-
-                                <span class="skill">
-                                    Triggers
-                                </span>
-
-                                <span class="skill">
-                                    Stored Procedures
-                                </span>
-
-                                <span class="skill">
-                                    Views
-                                </span>
-
-                                <span class="skill">
-                                    Indexing
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="skill-group">
-
-                            <div class="skill-name">
-                                Tools
-                            </div>
-
-                            <div class="skill-list">
-
-                                <span class="skill">
-                                    Git
-                                </span>
-
-                                <span class="skill">
-                                    GitHub
-                                </span>
-
-                                <span class="skill">
-                                    EMU8086
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             ENGINEERING APPROACH
-        ========================== -->
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="section-label">
-                    04 / Engineering Approach
-                </div>
-
-                <h2 class="section-title">
-                    How I approach
-                    software work.
-                </h2>
-
-                <p class="section-intro">
-                    I am building my engineering process alongside my technical
-                    skills — understanding the problem, structuring the system,
-                    and improving the result through documentation and iteration.
-                </p>
-
-
-                <div class="approach-grid">
-
-
-                    <article class="approach-card reveal">
-
-                        <div class="approach-number">
-                            01
-                        </div>
-
-                        <h3>
-                            Understand first
-                        </h3>
-
-                        <p>
-                            Start with requirements, users, data, behavior,
-                            and constraints before jumping directly into
-                            implementation.
-                        </p>
-
-                    </article>
-
-
-                    <article class="approach-card reveal">
-
-                        <div class="approach-number">
-                            02
-                        </div>
-
-                        <h3>
-                            Structure the system
-                        </h3>
-
-                        <p>
-                            Apply appropriate data structures, database models,
-                            software design principles, and clear responsibility
-                            assignment.
-                        </p>
-
-                    </article>
-
-
-                    <article class="approach-card reveal">
-
-                        <div class="approach-number">
-                            03
-                        </div>
-
-                        <h3>
-                            Document & improve
-                        </h3>
-
-                        <p>
-                            Keep projects understandable and version-controlled,
-                            then use each iteration to improve the engineering
-                            quality of the work.
-                        </p>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             EDUCATION
-        ========================== -->
-
-        <section class="section" id="education">
-
-            <div class="container">
-
-                <div class="section-label">
-                    05 / Education
-                </div>
-
-                <h2 class="section-title">
-                    Building the foundation.
-                </h2>
-
-                <p class="section-intro">
-                    My academic work has given me exposure to both implementation
-                    and system-level thinking.
-                </p>
-
-
-                <div class="education-card reveal">
+                <div class="contact-panel reveal">
 
                     <div>
 
-                        <h3>
-                            Abasyn University, Islamabad
-                        </h3>
+                        <div class="section-kicker">
+                            05 / CONTACT
+                        </div>
+
+                        <h2>
+                            Let's talk about
+                            <span>software.</span>
+                        </h2>
 
                         <p>
-                            Bachelor of Science in Software Engineering
-                        </p>
-
-                        <p>
-                            Coursework includes Introduction to Programming,
-                            Object-Oriented Programming, Data Structures &
-                            Algorithms, Database Management Systems, Software
-                            Engineering, and related computing subjects.
+                            Open to software engineering internships,
+                            freelance opportunities, technical collaboration,
+                            and practical project work.
                         </p>
 
                     </div>
 
 
-                    <div class="education-status">
-                        5th semester
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACT
-        ========================== -->
-
-        <section class="section contact-section" id="contact">
-
-            <div class="container">
-
-                <div class="section-label">
-                    06 / Contact
-                </div>
-
-
-                <div class="contact-box reveal">
-
-                    <h2>
-                        Let's build something
-                        worth talking about.
-                    </h2>
-
-
-                    <p>
-                        I'm currently open to software engineering internships,
-                        freelance development opportunities, technical
-                        collaborations, and practical software projects where
-                        I can contribute and continue growing.
-                    </p>
-
-
-                    <div class="contact-links">
+                    <div class="contact-panel-actions">
 
                         <a
+                            href="contact.html"
                             class="button button-primary"
-                            href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
-                            target="_blank"
-                            rel="noopener noreferrer"
                         >
-                            Connect on LinkedIn ↗
+                            Contact me
+                            <span>↗</span>
                         </a>
 
 
                         <a
-                            class="button"
-                            href="https://github.com/abdullahsatech-eng"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            View GitHub ↗
-                        </a>
-
-
-                        <a
-                            class="button"
                             href="mailto:abdullahsa.tech@gmail.com"
+                            class="button button-secondary"
                         >
-                            Email Abdullah ↗
+                            Email Abdullah
+                            <span>↗</span>
                         </a>
-
-                    </div>
-
-
-                    <div class="email-addresses">
-
-                        <div>
-                            Primary:
-                            <span>
-                                abdullahsa.tech@gmail.com
-                            </span>
-                        </div>
-
-                        <div>
-                            LinkedIn email:
-                            <span>
-                                abdullahkhan5152611@gmail.com
-                            </span>
-                        </div>
 
                     </div>
 
@@ -1134,7 +866,7 @@
          FOOTER
     ========================== -->
 
-    <footer>
+    <footer class="site-footer">
 
         <div class="container footer-inner">
 
@@ -1143,8 +875,29 @@
                 Abdullah Khan
             </div>
 
-            <div>
-                Software Engineering · Islamabad, Pakistan
+
+            <div class="footer-links">
+
+                <a
+                    href="https://github.com/abdullahsatech-eng"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/abdullah-khan-0773aa349/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+                <a href="mailto:abdullahsa.tech@gmail.com">
+                    Email
+                </a>
+
             </div>
 
         </div>
@@ -1152,7 +905,7 @@
     </footer>
 
 
-    <script src="script.js" defer></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>
